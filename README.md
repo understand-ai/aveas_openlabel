@@ -2,7 +2,7 @@
 
 ## Installation and usage
 
-This library can be installed via pip using `pip install uai_openlabel` or with poetry using `poetry add uai_openlabel`.
+This library can be installed via pip using `pip install aveas_openlabel` or with poetry using `poetry add aveas_openlabel`.
 
 For examples and instruction on how to use this library, please clone the repository and generate the documentation. 
 To generate the documentation for this project, install the dependencies with Poetry (see below) and run `poetry run pydoctor`. 
