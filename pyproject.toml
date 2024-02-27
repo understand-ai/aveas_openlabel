@@ -1,0 +1,66 @@
+[tool.poetry]
+name = "aveas_openlabel"
+version = "0.4.8"
+description = "The AVEAS OpenLABEL specification"
+license = "MIT"
+authors = ["understand.ai <postmaster@understand.ai>"]
+readme = "README.md"
+repository = "https://github.com/understand-ai/aveas_openlabel"
+keywords = ["ASAM OpenLABEL", "AVEAS"]
+packages = [{include = "aveas_openlabel"}]
+include = ["aveas_openlabel/py.typed"]
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "default"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+apischema = { version = "^0.18.0", source = "PyPI" }
+uai_openlabel = { version = "^0.3.5", source = "PyPI" }
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.0.0"
+pydoctor = "^23.4.1"
+pytest = "^7.0.1"
+pytest-cov = "^3.0.0"
+black = {extras = ["d"], version = "^22.3.0"}
+ruff = "^0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 128
+target-version = ['py39', 'py310', 'py311']
+
+[tool.ruff.lint]
+select = [ "E","F","W","I","N","TRY","RUF" ]
+ignore = [ "N801", "W291", "TRY003", "E501", "RUF002" ]
+
+[tool.pydoctor]
+add-package = "aveas_openlabel/"
+html-output = "documentation/"
+project-name = "AVEAS OpenLABEL"
+project-url = "https://aveas.org/"
+make-html = true
+docformat = "restructuredtext"
+theme = "readthedocs"
+pyval-repr-maxlines = 0
+warnings-as-errors = true
+template-dir = "pydoctor_templates/"
+privacy = [
+    "HIDDEN:**.__*",
+    "PRIVATE:aveas_openlabel.attributes",
+    "PRIVATE:aveas_openlabel.classifications",
+    "PRIVATE:aveas_openlabel.contexts",
+    "PRIVATE:aveas_openlabel.object_data",
+    "PRIVATE:aveas_openlabel.object_in_frame_data",
+    "PRIVATE:aveas_openlabel.attribute_enforcer",
+    "HIDDEN:aveas_openlabel.aveas_openlabel",
+    "PRIVATE:aveas_openlabel.event",
+    "PRIVATE:aveas_openlabel.frame",
+    "PRIVATE:aveas_openlabel.metadata",
+    "PRIVATE:aveas_openlabel.utils",
+]
