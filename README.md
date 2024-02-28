@@ -3,10 +3,7 @@
 ## Installation and usage
 
 This library can be installed via pip using `pip install aveas_openlabel` or with poetry using `poetry add aveas_openlabel`.
-
-For examples and instruction on how to use this library, please clone the repository and generate the documentation. 
-To generate the documentation for this project, install the dependencies with Poetry (see below) and run `poetry run pydoctor`. 
-Then, open the html page under `documentation/index.html`. 
+The documentation with minimal examples can be found here: [understand-ai.github.io/aveas_openlabel/](https://understand-ai.github.io/aveas_openlabel/)
 
 
 ## Development
