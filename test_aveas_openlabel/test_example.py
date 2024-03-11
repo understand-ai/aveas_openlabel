@@ -235,8 +235,7 @@ def test_example() -> None:
     event_data = EventData(boolean=[], num=[], text=[role_a_participant_id], vec=[role_b_participant_i_ds])
     name = "event0"
     frame_intervals = [FrameInterval(frame_start=Uid("0"), frame_end=Uid("1"))]
-    type = EventTypeValue("cut-in")
-    event = Event(event_data=event_data, name=name, frame_intervals=frame_intervals, type=type)
+    event = Event(event_data=event_data, name=name, frame_intervals=frame_intervals, type=EventTypeValue.LANE_CHANGE)
 
     # sample car
     three_d_bounding_box_euler = BoundingBox((0, 0, 0, 0, 0, 0, 0, 0, 0))
