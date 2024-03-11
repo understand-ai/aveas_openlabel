@@ -39,7 +39,6 @@ def replace_strings_in_doc(module: ModuleType, string: str, replace_with: str) -
         module.__doc__ = new_doc
 
 
-@pytest.mark.xfail
 def test_module_root_doc() -> None:
     import aveas_openlabel
 
