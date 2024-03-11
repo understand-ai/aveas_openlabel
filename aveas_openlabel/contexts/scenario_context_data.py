@@ -294,7 +294,12 @@ class Scenario__End__Coordinates(VectorData):
 
 @dataclass
 class Scenario__RatioAverageSpeedToSpeedLimit(NumberData):
-    """The average ratio between speed and speed limit over all road-based traffic participants and all frames in the file."""
+    """
+    The average ratio between speed and speed limit over all road-based traffic participants and all frames in the file.
+
+     In case no speed limit is present, the denominator is set to the maximum available speed limit of
+     the country (e.g. 130 km/h for Germany) and 20 km/h is added to it (resulting in 150 km/h for Germany).
+    """
 
     val: float = field(
         default_factory=lambda: no_default(field="Scenario__RatioAverageSpeedToSpeedLimit.val"), metadata=required
