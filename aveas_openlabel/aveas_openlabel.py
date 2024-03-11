@@ -42,7 +42,7 @@ from uai_openlabel import (
 
 from aveas_openlabel.event import Event
 from aveas_openlabel.frame import Frame
-from aveas_openlabel.metadata import Metadata, RightOfUse, AcquisitionMethod
+from aveas_openlabel.metadata import AcquisitionMethod, Metadata, RightOfUse
 
 __all__: list[str] = []
 

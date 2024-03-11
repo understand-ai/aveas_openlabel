@@ -16,8 +16,6 @@ import doctest
 from pathlib import Path
 from types import ModuleType
 
-import pytest
-
 
 def replace_strings_in_doc(module: ModuleType, string: str, replace_with: str) -> None:
     if replace_with[0] != "/":
