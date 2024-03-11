@@ -48,9 +48,6 @@ from aveas_openlabel.contexts.scenario_context_data import (
     Scenario__MinimumVehicleDistanceS,
     Scenario__MinimumVehicleDistanceS__Frame,
     Scenario__MinimumVehicleDistanceS__UStdDev,
-    Scenario__MinimumVehicleDistanceT,
-    Scenario__MinimumVehicleDistanceT__Frame,
-    Scenario__MinimumVehicleDistanceT__UStdDev,
     Scenario__MinimumVehicleSpeed,
     Scenario__MinimumVehicleSpeed__Frame,
     Scenario__MinimumVehicleSpeed__UStdDev,
@@ -90,8 +87,6 @@ class ScenarioContextData(Attributes, EachAttributeOnlyOnceEnforcer):
             Scenario__MaximumVehicleSpeed__UStdDev,
             Scenario__MinimumVehicleDistanceS,
             Scenario__MinimumVehicleDistanceS__UStdDev,
-            Scenario__MinimumVehicleDistanceT,
-            Scenario__MinimumVehicleDistanceT__UStdDev,
             Scenario__WeekdayNumber,
             Scenario__RatioAverageSpeedToSpeedLimit,
             Scenario__RatioAverageSpeedToSpeedLimit__UStdDev,
@@ -106,7 +101,6 @@ class ScenarioContextData(Attributes, EachAttributeOnlyOnceEnforcer):
             Scenario__IsSampled__ReferenceToSourceScenario,
             Scenario__MinimumVehicleSpeed__Frame,
             Scenario__MaximumVehicleSpeed__Frame,
-            Scenario__MinimumVehicleDistanceT__Frame,
             Scenario__MinimumVehicleDistanceS__Frame,
         ]
     ] = field(default_factory=lambda: no_default(field="ScenarioContextData.text"), metadata=required)

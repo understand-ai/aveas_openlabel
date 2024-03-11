@@ -121,41 +121,6 @@ class Scenario__MinimumVehicleDistanceS__Frame(TextData):
 
 
 @dataclass
-class Scenario__MinimumVehicleDistanceT(NumberData):
-    """The minimum distance between a moving vehicle and another traffic participant occurring in the scenario in orthogonal direction of the road's reference line."""
-
-    val: float = field(default_factory=lambda: no_default(field="Scenario__MinimumVehicleDistanceT.val"), metadata=required)
-    """The value of the minimum distance in orthogonal direction of the road's reference line."""
-
-    name: Literal["scenario/minimum_vehicle_distance_t"] = field(default="scenario/minimum_vehicle_distance_t")
-    """Is always 'scenario/minimum_vehicle_distance_t'"""
-
-
-@dataclass
-class Scenario__MinimumVehicleDistanceT__UStdDev(NumberData):
-    """Uncertainty for `Scenario__MinimumVehicleDistanceT` as standard deviation around the parent indicated value."""
-
-    val: float = field(default_factory=lambda: no_default(field="FrameMinimumVehicleDistanceT__UStdDev.val"), metadata=required)
-    """Standard deviation around the parent indicated value. """
-
-    name: Literal["scenario/minimum_vehicle_distance_t/ustddev"] = field(default="scenario/minimum_vehicle_distance_t/ustddev")
-    """Is always 'scenario/minimum_vehicle_distance_t/ustddev'."""
-
-
-@dataclass
-class Scenario__MinimumVehicleDistanceT__Frame(TextData):
-    """Specifying the frame ID for which Scenario__MinimumVehicleDistanceT occurs."""
-
-    val: str = field(
-        default_factory=lambda: no_default(field="Scenario__MinimumVehicleDistanceT__Frame.val"), metadata=required
-    )
-    """The frame ID for which Scenario__MinimumVehicleDistanceT occurs."""
-
-    name: Literal["scenario/minimum_vehicle_distance_t/frame"] = field(default="scenario/minimum_vehicle_distance_t/frame")
-    """Is always 'scenario/minimum_vehicle_distance_t/frame'"""
-
-
-@dataclass
 class Scenario__ContainsHighway(BooleanData):
     """Indicating if the scenario is (partially) taking place on highways."""
 
