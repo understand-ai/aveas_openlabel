@@ -103,8 +103,6 @@ from aveas_openlabel.contexts.scenario_context_data import (
     Scenario__MaximumVehicleSpeed__Frame,
     Scenario__MinimumVehicleDistanceS,
     Scenario__MinimumVehicleDistanceS__Frame,
-    Scenario__MinimumVehicleDistanceT,
-    Scenario__MinimumVehicleDistanceT__Frame,
     Scenario__MinimumVehicleSpeed,
     Scenario__MinimumVehicleSpeed__Frame,
     Scenario__RatioAverageSpeedToSpeedLimit,
@@ -160,7 +158,6 @@ def test_example() -> None:
     minimum_vehicle_velocity = Scenario__MinimumVehicleSpeed(0)
     maximum_vehicle_velocity = Scenario__MaximumVehicleSpeed(0)
     minimum_vehicle_distance_s = Scenario__MinimumVehicleDistanceS(0)
-    minimum_vehicle_distance_t = Scenario__MinimumVehicleDistanceT(0)
     weekday_number = Scenario__WeekdayNumber(0)
     ratio_average_speed_to_speed_limit = Scenario__RatioAverageSpeedToSpeedLimit(0)
     scenario_start_location = Scenario__Start__Location("")
@@ -168,8 +165,7 @@ def test_example() -> None:
     reference_to_source_scenario = Scenario__IsSampled__ReferenceToSourceScenario("")
     frame_minimum_vehicle_velocity = Scenario__MinimumVehicleSpeed__Frame("")
     frame_maximum_vehicle_velocity = Scenario__MaximumVehicleSpeed__Frame("")
-    frame_minimum_vehicle_distance_s = Scenario__MinimumVehicleDistanceT__Frame("")
-    frame_minimum_vehicle_distance_t = Scenario__MinimumVehicleDistanceS__Frame("")
+    frame_minimum_vehicle_distance_s = Scenario__MinimumVehicleDistanceS__Frame("")
     scenario_start_coordinates = Scenario__Start__Coordinates((0, 0, 0))
     scenario_end_coordinates = Scenario__End__Coordinates((0, 0, 0))
     scenario_course = Scenario__Course(["0", "0", "0"])
@@ -180,7 +176,6 @@ def test_example() -> None:
             minimum_vehicle_velocity,
             maximum_vehicle_velocity,
             minimum_vehicle_distance_s,
-            minimum_vehicle_distance_t,
             weekday_number,
             ratio_average_speed_to_speed_limit,
         ],
@@ -191,7 +186,6 @@ def test_example() -> None:
             frame_minimum_vehicle_velocity,
             frame_maximum_vehicle_velocity,
             frame_minimum_vehicle_distance_s,
-            frame_minimum_vehicle_distance_t,
         ],
         vec=[scenario_start_coordinates, scenario_end_coordinates, scenario_course],
     )
@@ -241,8 +235,7 @@ def test_example() -> None:
     event_data = EventData(boolean=[], num=[], text=[role_a_participant_id], vec=[role_b_participant_i_ds])
     name = "event0"
     frame_intervals = [FrameInterval(frame_start=Uid("0"), frame_end=Uid("1"))]
-    type = EventTypeValue("cut-in")
-    event = Event(event_data=event_data, name=name, frame_intervals=frame_intervals, type=type)
+    event = Event(event_data=event_data, name=name, frame_intervals=frame_intervals, type=EventTypeValue.LANE_CHANGE)
 
     # sample car
     three_d_bounding_box_euler = BoundingBox((0, 0, 0, 0, 0, 0, 0, 0, 0))

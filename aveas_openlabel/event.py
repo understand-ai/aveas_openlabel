@@ -42,8 +42,7 @@ from uai_openlabel import (
 class RoleAParticipantID(TextData):
     """Participant ID of traffic participant with Role A. Role A is dependent on the event type.
 
-    cut-in      :       vehicle performing the cut-in
-    cut-out     :       vehicle performing the cut-out
+    lane change :       vehicle performing the lane change
     parking     :       vehicle performing the parking maneuver
     turning     :       vehicle that is turning/crossing
     overtaking  :       vehicle that is overtaking
@@ -65,8 +64,7 @@ class RoleAParticipantID(TextData):
 class RoleBParticipantIDs(VectorData):
     """Participant IDs of traffic participants with Role B. Role B is dependent on the event type.
 
-    cut-in      :       vehicle in front of which the cut-in of the Role A vehicle ends
-    cut-out     :       vehicle in front of the Role A vehicle at the start of the cut-out
+    lane change :       empty
     parking     :       vehicles passing the Role A vehicle during the parking event and using the lane closest to the Role A vehicle
     turning     :       vehicles being within the scene during the turning event of the Role A vehicle and whose line of movement crosses the one of the Role A vehicle
     overtaking  :       vehicles that are being overtaken by the Role A vehicle
@@ -102,13 +100,8 @@ class EventData(Attributes):
 class EventTypeValue(str, Enum):
     """Possible values of `Event.type`."""
 
-    # TODO: add further events?
-
-    CUT_IN = "cut-in"
-    """Cut-in maneuver."""
-
-    CUT_OUT = "cut-out"
-    """Cut-out maneuver."""
+    LANE_CHANGE = "lane change"
+    """Lane change maneuver."""
 
     PARKING_MANEUVER = "parking"
     """Parking maneuver."""
@@ -140,7 +133,10 @@ class Event(BaseEvent):
     frame_intervals: list[FrameInterval] = field(
         default_factory=lambda: no_default(field="Event.frame_intervals"), metadata=required
     )
-    """The frame interval during which the event takes place."""
+    """The frame interval during which the event takes place. 
+    For a lane change, the start and end frame are the same because we annotate the point in time when the center 
+    of a vehicle is over the lane marking crossed during the lane change.
+    """
 
     type: EventTypeValue = field(default_factory=lambda: no_default(field="Event.type"), metadata=required)
     """The type of the event."""

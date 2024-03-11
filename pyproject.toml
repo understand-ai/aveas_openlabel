@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aveas_openlabel"
-version = "0.4.8"
+version = "0.4.9"
 description = "The AVEAS OpenLABEL specification"
 license = "MIT"
 authors = ["understand.ai <postmaster@understand.ai>"]

@@ -30,8 +30,7 @@ Writing a populated OpenLABEL dataclass structure to a JSON file is similarly si
 
 >>> import json
 >>> from aveas_openlabel import AveasOpenLabel
->>> aveas_openlabel_example = AveasOpenLabel()
->>> # Code to populate aveas_openlabel_example
+>>> aveas_openlabel_example = AveasOpenLabel.minimum_example()
 >>> content = aveas_openlabel_example.to_dict()
 >>> with open("path/to/file.json", "w") as f:
 ...     json.dump(content, f)

@@ -42,7 +42,7 @@ from uai_openlabel import (
 
 from aveas_openlabel.event import Event
 from aveas_openlabel.frame import Frame
-from aveas_openlabel.metadata import Metadata
+from aveas_openlabel.metadata import AcquisitionMethod, Metadata, RightOfUse
 
 __all__: list[str] = []
 
@@ -119,3 +119,14 @@ class AveasOpenLabel(BaseOpenLabel):
     """
 
     # tags: NOT SPECIFIED FOR AVEAS OPENLABEL
+
+    @classmethod
+    def minimum_example(cls: type["AveasOpenLabel"]) -> "AveasOpenLabel":
+        return cls(
+            metadata=Metadata(
+                right_of_use=RightOfUse.RESEARCH_ONLY,
+                acquisition_method=AcquisitionMethod.IN_VEHICLE,
+                acquisition_partner="foo bar institute",
+                acquisition_date="2000-01-01T01:01:01.001Z",
+            )
+        )

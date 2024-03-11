@@ -1,7 +1,11 @@
 {
   "openlabel": {
     "metadata": {
-      "schema_version": "1.0.0"
+      "schema_version": "1.0.0",
+      "right_of_use": "research_only",
+      "acquisition_method": "in-vehicle",
+      "acquisition_partner": "understand.ai",
+      "acquisition_date": "2000-01-01T01:01:01.001Z"
     }
   }
 }
