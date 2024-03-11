@@ -121,10 +121,12 @@ class AveasOpenLabel(BaseOpenLabel):
     # tags: NOT SPECIFIED FOR AVEAS OPENLABEL
 
     @classmethod
-    def minimum_example(cls: "AveasOpenLabel") -> "AveasOpenLabel":
-        return cls(metadata=Metadata(
-            right_of_use=RightOfUse.RESEARCH_ONLY,
-            acquisition_method=AcquisitionMethod.IN_VEHICLE,
-            acquisition_partner="foo bar institute",
-            acquisition_date="2000-01-01T01:01:01.001Z"
-        ))
+    def minimum_example(cls: type["AveasOpenLabel"]) -> "AveasOpenLabel":
+        return cls(
+            metadata=Metadata(
+                right_of_use=RightOfUse.RESEARCH_ONLY,
+                acquisition_method=AcquisitionMethod.IN_VEHICLE,
+                acquisition_partner="foo bar institute",
+                acquisition_date="2000-01-01T01:01:01.001Z",
+            )
+        )
