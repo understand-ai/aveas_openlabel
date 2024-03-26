@@ -29,6 +29,7 @@ def test_must_be_instantiable_and_serializable_with_metadata_only() -> None:
         acquisition_method=AcquisitionMethod.IN_VEHICLE,
         acquisition_partner="test",
         acquisition_date="yyyy-MM-ddTHH:mm:ss.FFFZ",
+        projection_string="example projection string",
     )
     openlabel = AveasOpenLabel(metadata=metadata)
     openlabel.to_dict()

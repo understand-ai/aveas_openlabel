@@ -128,5 +128,6 @@ class AveasOpenLabel(BaseOpenLabel):
                 acquisition_method=AcquisitionMethod.IN_VEHICLE,
                 acquisition_partner="foo bar institute",
                 acquisition_date="2000-01-01T01:01:01.001Z",
+                projection_string="example projection string",
             )
         )
