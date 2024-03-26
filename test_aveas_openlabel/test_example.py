@@ -142,6 +142,7 @@ def test_example() -> None:
         acquisition_method=acquisition_method,
         acquisition_partner=acquisition_partner,
         acquisition_date=acquisition_date,
+        projection_string="example projection string",
     )
 
     # Create contexts

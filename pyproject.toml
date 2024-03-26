@@ -1,6 +1,7 @@
 [tool.poetry]
 name = "aveas_openlabel"
-version = "0.4.9"
+# When bumping this version, don't forget to update aveas_openlabel.metadata.Metadata.aveas_schema_version!
+version = "0.4.10"
 description = "The AVEAS OpenLABEL specification"
 license = "MIT"
 authors = ["understand.ai <postmaster@understand.ai>"]
@@ -17,7 +18,7 @@ priority = "default"
 [tool.poetry.dependencies]
 python = ">=3.9,<3.12"
 apischema = { version = "^0.18.0", source = "PyPI" }
-uai_openlabel = { version = "^0.3.5", source = "PyPI" }
+uai_openlabel = { version = "^0.3.6", source = "PyPI" }
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.0.0"

@@ -18,6 +18,7 @@
 
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import Literal
 
 from apischema.metadata import required
 from uai_openlabel import (
@@ -55,6 +56,9 @@ class AcquisitionMethod(str, Enum):
 class Metadata(BaseMetadata):
     """This JSON object contains metadata about the annotation file itself."""
 
+    aveas_schema_version: Literal["0.4.10"] = field(default="0.4.10")
+    """The version of the aveas_openlabel library used to generate this file."""
+
     right_of_use: RightOfUse = field(default_factory=lambda: no_default(field="Metadata.right_of_use"), metadata=required)
     """Specifies the usage rights of the data."""
 
@@ -83,4 +87,10 @@ class Metadata(BaseMetadata):
     - ss: seconds with leading zero
     - FFF: Milliseconds with leading zeros
     - Z: 'Z' if the time zone is UTC, '±[hh]:[mm]', '±[hh][mm]', or '±[hh]' otherwise, ex. '+0100'
+    """
+
+    projection_string: str = field(default_factory=lambda: no_default(field="Metadata.projection_string"), metadata=required)
+    """
+    The geographic reference system used for the coordinates in this OpenLABEL-file and in corresponding OpenDRIVE-files. 
+    Projection strings follow official parameter sets for proj-strings from EPSG.
     """
