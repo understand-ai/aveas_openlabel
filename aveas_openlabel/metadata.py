@@ -88,3 +88,11 @@ class Metadata(BaseMetadata):
     - FFF: Milliseconds with leading zeros
     - Z: 'Z' if the time zone is UTC, '±[hh]:[mm]', '±[hh][mm]', or '±[hh]' otherwise, ex. '+0100'
     """
+
+    projection_string: str = field(
+        default_factory=lambda: no_default(field="Metadata.projection_string"), metadata=required
+    )
+    """
+    The geographic reference system used for the coordinates in this OpenLABEL-file and in corresponding OpenDRIVE-files. 
+    Projection strings follow official parameter sets for proj-strings from EPSG.
+    """
