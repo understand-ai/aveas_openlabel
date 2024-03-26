@@ -23,7 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     height: 0;
 }
 
-table {
+.rst-colwidths-given {
     width: 100%;
     display: block;
     overflow-x: auto;
@@ -36,18 +36,3 @@ table {
 td, th {
     position: relative;
 }
-
-tr:hover{
-    background-color: rgba(255, 255, 0, 0.5);
-}
-
-td:hover::after,th:hover::after {
-    background-color: rgba(255, 255, 0, 0.5);
-    content: '\00a0';
-    height: 10000px;
-    left: 0;
-    position: absolute;
-    top: -5000px;
-    width: 100%;
-}
-
