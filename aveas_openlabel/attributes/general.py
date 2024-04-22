@@ -16,6 +16,7 @@
 
 import math
 from dataclasses import dataclass, field
+from enum import Enum
 from typing import Literal
 
 from apischema.metadata import required
@@ -189,3 +190,47 @@ class AttachedTo(TextData):
 
     name: Literal["attached_to"] = field(default="attached_to")
     """Is always 'attached_to'."""
+
+
+@dataclass
+class ExactestReferencePointTypeValue(str, Enum):
+    """Possible values of 'ExactestReferencePointType'"""
+
+    LEFT = "left"
+    """best detection is left road users' side"""
+
+    RIGHT = "right"
+    """best detection is right road users' side"""
+
+    FRONT = "front"
+    """best detection is road users' front"""
+
+    BACK = "back"
+    """best detection is road users' back"""
+
+    CENTRE = "centre"
+    """best detection is road users' centre of bbox"""
+
+
+@dataclass
+class ExactestReferencePointType(TextData):
+    """The classification of the best detectable bbox-side of road users"""
+
+    val: ExactestReferencePointTypeValue = field(
+        default_factory=lambda: no_default(field="ExactestReferencePointType.val"), metadata=required
+    )
+    """See `ExactestReferencePointTypeValue` for possible values."""
+
+    name: Literal["general/exactest_reference_point_type"] = field(default="general/exactest_reference_point_type")
+    """Is always 'general/exactest_reference_point_type'"""
+
+
+@dataclass
+class ExactestReferencePoint(VectorData):
+    """Points coordinates of best detectable point of bbox of road users."""
+
+    val: tuple[float, float] = field(default_factory=lambda: no_default(field="ExactestReferencePoint"), metadata=required)
+    """x, y coordinates of best detectable point of bbox of road users."""
+
+    name: Literal["general/exactest_reference_point"] = field(default="general/exactest_reference_point")
+    """Is always 'general/exactest_reference_point'."""
