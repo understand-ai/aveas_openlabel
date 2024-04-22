@@ -18,7 +18,7 @@ priority = "default"
 [tool.poetry.dependencies]
 python = ">=3.9,<3.12"
 apischema = { version = "^0.18.0", source = "PyPI" }
-uai_openlabel = { version = "^0.3.6", source = "PyPI" }
+uai_openlabel = { version = "^0.3.7", source = "PyPI" }
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.0.0"
