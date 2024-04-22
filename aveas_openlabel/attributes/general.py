@@ -192,7 +192,6 @@ class AttachedTo(TextData):
     """Is always 'attached_to'."""
 
 
-@dataclass
 class BestDetectedSideValue(str, Enum):
     """Possible values of 'BestDetectedSide'"""
 
