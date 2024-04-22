@@ -219,8 +219,8 @@ class BestDetectedSide(TextData):
     val: BestDetectedSideValue = field(default_factory=lambda: no_default(field="BestDetectedSide.val"), metadata=required)
     """See `BestDetectedSideValue` for possible values."""
 
-    name: Literal["general/best_detected_side"] = field(default="general/best_detected_side")
-    """Is always 'general/best_detected_side'"""
+    name: Literal["best_detected_side"] = field(default="best_detected_side")
+    """Is always 'best_detected_side'"""
 
 
 @dataclass
@@ -232,5 +232,5 @@ class BestDetectedPoint(VectorData):
     )
     """(x, y) or (x, y, z) coordinates of best detectable point of bbox of road users."""
 
-    name: Literal["general/best_detected_point"] = field(default="general/best_detected_point")
-    """Is always 'general/best_detected_point'."""
+    name: Literal["best_detected_point"] = field(default="best_detected_point")
+    """Is always 'best_detected_point'."""
