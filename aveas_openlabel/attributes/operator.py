@@ -266,9 +266,9 @@ class Operator__SixDoFRotationAndAcceleration(VectorData):
      - x in (m/s^2): Acceleration in x direction.
      - y in (m/s^2): Acceleration in y direction.
      - z in (m/s^2): Acceleration in z direction.
-     - rz in (rad): Euler yaw angles (positive: yaw left).
-     - ry in (rad): Euler pitch angles (positive: pitch down).
      - rx in (rad): Euler roll angle (positive: right roll).
+     - ry in (rad): Euler pitch angles (positive: pitch down).
+     - rz in (rad): Euler yaw angles (positive: yaw left).
     """
 
     name: Literal["operator/six_dof_rotation_and_acceleration"] = field(default="operator/six_dof_rotation_and_acceleration")

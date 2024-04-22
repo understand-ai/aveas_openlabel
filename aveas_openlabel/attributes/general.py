@@ -43,9 +43,9 @@ class BoundingBox(BaseThreeDBoundingBoxEuler):
      - x in (m): The x coordinate of the 3D position of the center of the cuboid.
      - y in (m): The y coordinate of the 3D position of the center of the cuboid.
      - z in (m): The z coordinate of the 3D position of the center of the cuboid.
-     - rz in (rad): Euler yaw angles (positive: yaw left).
-     - ry in (rad): Euler pitch angles (positive: pitch down).
      - rx in (rad): Euler roll angle (positive: right roll).
+     - ry in (rad): Euler pitch angles (positive: pitch down).
+     - rz in (rad): Euler yaw angles (positive: yaw left).
      - sx in (m): The x (length) dimension of the cuboid.
      - sy in (m): The y (width) dimension of the cuboid.
      - sz in (m): The z (height) dimension of the cuboid.
@@ -80,9 +80,9 @@ class Velocity(VectorData):
      - x in (m/s): Velocity of the x (forward) coordinate of the center of the cuboid.
      - y in (m/s): Velocity of the y (left) coordinate of the center of the cuboid.
      - z in (m/s): Velocity of the z (up) coordinate of the center of the cuboid.
-     - rz in (rad/s): Velocity of the yaw angle.
-     - ry in (rad/s): Velocity of the pitch angle.
      - rx in (rad/s): Velocity of the roll angle.
+     - ry in (rad/s): Velocity of the pitch angle.
+     - rz in (rad/s): Velocity of the yaw angle.
     """
 
     name: Literal["velocity"] = field(default="velocity")
@@ -114,9 +114,9 @@ class Acceleration(VectorData):
      - x in (m/s^2): Acceleration of the x coordinate of the center of the cuboid
      - y in (m/s^2): Acceleration of the y coordinate of the center of the cuboid
      - z in (m/s^2): Acceleration of the z coordinate of the center of the cuboid
-     - rz in (rad/s^2): Acceleration of the yaw angle.
-     - ry in (rad/s^2): Acceleration of the pitch angle.
      - rx in (rad/s^2): Acceleration of the roll angle.
+     - ry in (rad/s^2): Acceleration of the pitch angle.
+     - rz in (rad/s^2): Acceleration of the yaw angle.
     """
 
     name: Literal["acceleration"] = field(default="acceleration")
