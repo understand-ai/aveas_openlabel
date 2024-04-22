@@ -17,7 +17,7 @@
 import math
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Literal
+from typing import Literal, Union
 
 from apischema.metadata import required
 from uai_openlabel import (
@@ -193,44 +193,44 @@ class AttachedTo(TextData):
 
 
 @dataclass
-class ExactestReferencePointTypeValue(str, Enum):
-    """Possible values of 'ExactestReferencePointType'"""
+class BestDetectedSideValue(str, Enum):
+    """Possible values of 'BestDetectedSide'"""
 
     LEFT = "left"
-    """best detection is left road users' side"""
+    """The object's left side is detected best."""
 
     RIGHT = "right"
-    """best detection is right road users' side"""
+    """The object's right side is detected best."""
 
     FRONT = "front"
-    """best detection is road users' front"""
+    """The object's front side is detected best."""
 
     BACK = "back"
-    """best detection is road users' back"""
+    """The object's back side is detected best."""
 
-    CENTRE = "centre"
-    """best detection is road users' centre of bbox"""
+    TOP = "top"
+    """The object's top side is detected best."""
 
 
 @dataclass
-class ExactestReferencePointType(TextData):
-    """The classification of the best detectable bbox-side of road users"""
+class BestDetectedSide(TextData):
+    """The classification of the best detectable bbox-side of the object."""
 
-    val: ExactestReferencePointTypeValue = field(
-        default_factory=lambda: no_default(field="ExactestReferencePointType.val"), metadata=required
+    val: BestDetectedSideValue = field(default_factory=lambda: no_default(field="BestDetectedSide.val"), metadata=required)
+    """See `BestDetectedSideValue` for possible values."""
+
+    name: Literal["general/best_detected_side"] = field(default="general/best_detected_side")
+    """Is always 'general/best_detected_side'"""
+
+
+@dataclass
+class BestDetectedPoint(VectorData):
+    """Best-detected point of the object."""
+
+    val: Union[tuple[float, float], tuple[float, float, float]] = field(
+        default_factory=lambda: no_default(field="BestDetectedPoint.val"), metadata=required
     )
-    """See `ExactestReferencePointTypeValue` for possible values."""
+    """(x, y) or (x, y, z) coordinates of best detectable point of bbox of road users."""
 
-    name: Literal["general/exactest_reference_point_type"] = field(default="general/exactest_reference_point_type")
-    """Is always 'general/exactest_reference_point_type'"""
-
-
-@dataclass
-class ExactestReferencePoint(VectorData):
-    """Points coordinates of best detectable point of bbox of road users."""
-
-    val: tuple[float, float] = field(default_factory=lambda: no_default(field="ExactestReferencePoint"), metadata=required)
-    """x, y coordinates of best detectable point of bbox of road users."""
-
-    name: Literal["general/exactest_reference_point"] = field(default="general/exactest_reference_point")
-    """Is always 'general/exactest_reference_point'."""
+    name: Literal["general/best_detected_point"] = field(default="general/best_detected_point")
+    """Is always 'general/best_detected_point'."""
