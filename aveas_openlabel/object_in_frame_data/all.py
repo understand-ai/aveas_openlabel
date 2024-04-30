@@ -26,6 +26,8 @@ from aveas_openlabel.attribute_enforcer import EachAttributeOnlyOnceEnforcer
 from aveas_openlabel.attributes.general import (
     Acceleration,
     Acceleration__UStdDev,
+    BestDetectedPoint,
+    BestDetectedSide,
     BoundingBox,
     BoundingBox__UStdDev,
     Velocity,
@@ -145,13 +147,14 @@ class ObjectInFrameData__All(BaseObjectData, EachAttributeOnlyOnceEnforcer):
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__All.num"), metadata=required)
     """Contains all numeric attributes"""
 
-    text: list[Union[Operator__FocussedObject, Operator__FocussedObject__Id, OpenDrive__RoadId, Road__Classification]] = field(
-        default_factory=lambda: no_default(field="ObjectInFrameData__All.text"), metadata=required
-    )
+    text: list[
+        Union[BestDetectedSide, Operator__FocussedObject, Operator__FocussedObject__Id, OpenDrive__RoadId, Road__Classification]
+    ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__All.text"), metadata=required)
     """Contains all textual attributes"""
 
     vec: list[
         Union[
+            BestDetectedPoint,
             BoundingBox__UStdDev,
             Velocity,
             Velocity__UStdDev,

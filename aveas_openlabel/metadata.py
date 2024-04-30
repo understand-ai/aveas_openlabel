@@ -56,7 +56,7 @@ class AcquisitionMethod(str, Enum):
 class Metadata(BaseMetadata):
     """This JSON object contains metadata about the annotation file itself."""
 
-    aveas_schema_version: Literal["0.4.11"] = field(default="0.4.11")
+    aveas_schema_version: Literal["0.4.12"] = field(default="0.4.12")
     """The version of the aveas_openlabel library used to generate this file."""
 
     right_of_use: RightOfUse = field(default_factory=lambda: no_default(field="Metadata.right_of_use"), metadata=required)
