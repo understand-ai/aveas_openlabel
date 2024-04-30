@@ -16,7 +16,8 @@
 
 import math
 from dataclasses import dataclass, field
-from typing import Literal
+from enum import Enum
+from typing import Literal, Union
 
 from apischema.metadata import required
 from uai_openlabel import (
@@ -189,3 +190,46 @@ class AttachedTo(TextData):
 
     name: Literal["attached_to"] = field(default="attached_to")
     """Is always 'attached_to'."""
+
+
+class BestDetectedSideValue(str, Enum):
+    """Possible values of `BestDetectedSide`"""
+
+    LEFT = "left"
+    """The object's left side is detected best."""
+
+    RIGHT = "right"
+    """The object's right side is detected best."""
+
+    FRONT = "front"
+    """The object's front side is detected best."""
+
+    BACK = "back"
+    """The object's back side is detected best."""
+
+    TOP = "top"
+    """The object's top side is detected best."""
+
+
+@dataclass
+class BestDetectedSide(TextData):
+    """The classification of the best detectable bbox-side of the object."""
+
+    val: BestDetectedSideValue = field(default_factory=lambda: no_default(field="BestDetectedSide.val"), metadata=required)
+    """See `BestDetectedSideValue` for possible values."""
+
+    name: Literal["best_detected_side"] = field(default="best_detected_side")
+    """Is always 'best_detected_side'"""
+
+
+@dataclass
+class BestDetectedPoint(VectorData):
+    """Best-detected point of the object."""
+
+    val: Union[tuple[float, float], tuple[float, float, float]] = field(
+        default_factory=lambda: no_default(field="BestDetectedPoint.val"), metadata=required
+    )
+    """(x, y) or (x, y, z) coordinates of best detectable point of bbox of road users."""
+
+    name: Literal["best_detected_point"] = field(default="best_detected_point")
+    """Is always 'best_detected_point'."""
