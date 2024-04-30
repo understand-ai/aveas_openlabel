@@ -193,7 +193,7 @@ class AttachedTo(TextData):
 
 
 class BestDetectedSideValue(str, Enum):
-    """Possible values of 'BestDetectedSide'"""
+    """Possible values of `BestDetectedSide`"""
 
     LEFT = "left"
     """The object's left side is detected best."""
