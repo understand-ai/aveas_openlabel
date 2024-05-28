@@ -33,6 +33,12 @@ from aveas_openlabel.attributes.general import (
     Velocity,
     Velocity__UStdDev,
 )
+from aveas_openlabel.attributes.impact import (
+    Impact__gTTC__ObjectId,
+    Impact__gTTC__Value,
+    Impact__PrET__ObjectId,
+    Impact__PrET__Value,
+)
 from aveas_openlabel.attributes.open_drive import (
     OpenDrive__LocalRoadCoordinates,
     OpenDrive__LocalRoadCoordinates__UStdDev,
@@ -72,13 +78,22 @@ class ObjectInFrameData__NonVehicle(BaseObjectData, EachAttributeOnlyOnceEnforce
             Operator__HeadRotation,
             Operator__HeadRotation__UStdDev,
             Operator__ViewingAngle,
+            Impact__gTTC__Value,
+            Impact__PrET__Value,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle.num"), metadata=required)
     """Contains all numeric attributes"""
 
-    text: list[Union[BestDetectedSide, Operator__FocussedObject, Operator__FocussedObject__Id, OpenDrive__RoadId]] = field(
-        default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle.text"), metadata=required
-    )
+    text: list[
+        Union[
+            BestDetectedSide,
+            Operator__FocussedObject,
+            Operator__FocussedObject__Id,
+            OpenDrive__RoadId,
+            Impact__gTTC__ObjectId,
+            Impact__PrET__ObjectId,
+        ]
+    ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle.text"), metadata=required)
     """Contains all textual attributes"""
 
     vec: list[

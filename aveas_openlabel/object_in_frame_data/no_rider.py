@@ -38,6 +38,12 @@ from aveas_openlabel.attributes.hmi_feedback import (
     HmiFeedback__Other,
     HmiFeedback__Visual,
 )
+from aveas_openlabel.attributes.impact import (
+    Impact__gTTC__ObjectId,
+    Impact__gTTC__Value,
+    Impact__PrET__ObjectId,
+    Impact__PrET__Value,
+)
 from aveas_openlabel.attributes.interior import (
     Interior__AcceleratorPedal,
     Interior__AutomatedControl__Lateral,
@@ -141,12 +147,22 @@ class ObjectInFrameData__NoRider(BaseObjectData, EachAttributeOnlyOnceEnforcer):
             Road__NumberLanes__Right__Legal,
             Road__NumberLanes__Right__Physical,
             Road__SpeedLimit,
+            Impact__gTTC__Value,
+            Impact__PrET__Value,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NoRider.num"), metadata=required)
     """Contains all numeric attributes"""
 
     text: list[
-        Union[BestDetectedSide, Operator__FocussedObject, Operator__FocussedObject__Id, OpenDrive__RoadId, Road__Classification]
+        Union[
+            BestDetectedSide,
+            Operator__FocussedObject,
+            Operator__FocussedObject__Id,
+            OpenDrive__RoadId,
+            Road__Classification,
+            Impact__gTTC__ObjectId,
+            Impact__PrET__ObjectId,
+        ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NoRider.text"), metadata=required)
     """Contains all textual attributes"""
 
