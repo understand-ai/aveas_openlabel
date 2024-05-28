@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 from typing import Literal
 
 from apischema.metadata import required
-from uai_openlabel import TextData, VectorData, no_default
+from uai_openlabel import NumberData, TextData, VectorData, no_default
 
 
 @dataclass
@@ -77,3 +77,47 @@ class Impact__Frame(TextData):
 
     name: Literal["impact/frame"] = field(default="impact/frame")
     """Is always 'impact/frame'"""
+
+
+@dataclass
+class Impact__gTTC__ObjectId(TextData):
+    """Object ID of the opposing traffic participant with the lowest overall geometrical time-to-collision (gTTC)."""
+
+    val: str = field(default_factory=lambda: no_default(field="Impact__gTTC__ObjectId.val"), metadata=required)
+    """The object ID of the opposing traffic participant."""
+
+    name: Literal["impact/gttc/object_id"] = field(default="impact/gttc/object_id")
+    """Is always 'impact/gttc/object_id'."""
+
+
+@dataclass
+class Impact__gTTC__Value(NumberData):
+    """Value of the geometrical time-to-collision (gTTC) for the traffic participant mentioned in `Impact__gTTC__ObjectId`"""
+
+    val: float = field(default_factory=lambda: no_default(field="Impact__gTTC__ObjectId.val"), metadata=required)
+    """Value of the geometrical time-to-collision (gTTC)."""
+
+    name: Literal["impact/gttc/value"] = field(default="impact/gttc/value")
+    """Is always 'impact/gttc/value'."""
+
+
+@dataclass
+class Impact__PrET__ObjectId(TextData):
+    """Object ID of the opposing traffic participant with the lowest overall predicted encroachment time (PrET)."""
+
+    val: str = field(default_factory=lambda: no_default(field="Impact__PrET__ObjectId.val"), metadata=required)
+    """The object ID of the opposing traffic participant."""
+
+    name: Literal["impact/pret/object_id"] = field(default="impact/pret/object_id")
+    """Is always 'impact/pret/object_id'."""
+
+
+@dataclass
+class Impact__PrET__Value(NumberData):
+    """Value of the predicted encroachment time (PrET) for the traffic participant mentioned in `Impact__PrET__ObjectId`"""
+
+    val: float = field(default_factory=lambda: no_default(field="Impact__PrET__Value.val"), metadata=required)
+    """Value of the predicted encroachment time (PrET)."""
+
+    name: Literal["impact/pret/value"] = field(default="impact/pret/value")
+    """Is always 'impact/pret/value'."""
