@@ -143,6 +143,8 @@ def test_example() -> None:
         acquisition_partner=acquisition_partner,
         acquisition_date=acquisition_date,
         projection_string="example projection string",
+        threshold_gTTC=1.0,
+        threshold_PrET=1.0,
     )
 
     # Create contexts
