@@ -98,9 +98,9 @@ class ObjectInFrameData__PassiveVehicle_NonOperator(BaseObjectData, EachAttribut
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.num"), metadata=required)
     """Contains all numeric attributes"""
 
-    text: list[
-        Union[BestDetectedSide, OpenDrive__RoadId, Road__Classification]
-    ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.text"), metadata=required)
+    text: list[Union[BestDetectedSide, OpenDrive__RoadId, Road__Classification]] = field(
+        default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.text"), metadata=required
+    )
     """Contains all textual attributes"""
 
     vec: list[

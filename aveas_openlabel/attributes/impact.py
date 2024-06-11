@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 from typing import Literal
 
 from apischema.metadata import required
-from uai_openlabel import NumberData, ObjectUid, TextData, VectorData, no_default
+from uai_openlabel import ObjectUid, TextData, VectorData, no_default
 
 
 @dataclass
@@ -86,7 +86,9 @@ class Impact__gTTC__ObjectIds(VectorData):
     the value "threshold_gTTC" in `Metadata`.
     """
 
-    val: tuple[ObjectUid, ...] = field(default_factory=lambda: no_default(field="Impact__gTTC__ObjectIds.val"), metadata=required)
+    val: tuple[ObjectUid, ...] = field(
+        default_factory=lambda: no_default(field="Impact__gTTC__ObjectIds.val"), metadata=required
+    )
     """The object IDs of the opposing traffic participants."""
 
     name: Literal["impact/gttc/object_ids"] = field(default="impact/gttc/object_ids")
@@ -111,7 +113,9 @@ class Impact__PrET__ObjectIds(VectorData):
     the value "threshold_PrET" in `Metadata`.
     """
 
-    val: tuple[ObjectUid, ...] = field(default_factory=lambda: no_default(field="Impact__PrET__ObjectIds.val"), metadata=required)
+    val: tuple[ObjectUid, ...] = field(
+        default_factory=lambda: no_default(field="Impact__PrET__ObjectIds.val"), metadata=required
+    )
     """The object IDs of the opposing traffic participant."""
 
     name: Literal["impact/pret/object_ids"] = field(default="impact/pret/object_ids")
