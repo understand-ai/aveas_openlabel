@@ -94,3 +94,15 @@ class Metadata(BaseMetadata):
     The geographic reference system used for the coordinates in this OpenLABEL-file and in corresponding OpenDRIVE-files. 
     Projection strings follow official parameter sets for proj-strings from EPSG.
     """
+
+    threshold_gTTC: float = field(default_factory=lambda: no_default(field="Metadata.threshold_gTTC"), metadata=required)
+    """
+    Traffic participants with a geometrical time-to-collision (gTTC) value lower than this threshold will appear in 
+    the `Impact__gTTC__ObjectIds` and `Impact__gTTC__Values` attributes of this file. 
+    """
+
+    threshold_PrET: float = field(default_factory=lambda: no_default(field="Metadata.threshold_PrET"), metadata=required)
+    """
+    Traffic participants with a predicted encroachment time (PrET) value lower than this threshold will appear in 
+    the `Impact__PrET__ObjectIds` and `Impact__PrET__Values` attributes of this file. 
+    """
