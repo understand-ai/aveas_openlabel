@@ -34,10 +34,10 @@ from aveas_openlabel.attributes.general import (
     Velocity__UStdDev,
 )
 from aveas_openlabel.attributes.impact import (
-    Impact__gTTC__ObjectId,
-    Impact__gTTC__Value,
-    Impact__PrET__ObjectId,
-    Impact__PrET__Value,
+    Impact__gTTC__ObjectIds,
+    Impact__gTTC__Values,
+    Impact__PrET__ObjectIds,
+    Impact__PrET__Values,
 )
 from aveas_openlabel.attributes.open_drive import (
     OpenDrive__LocalRoadCoordinates,
@@ -59,12 +59,7 @@ class ObjectInFrameData__NonVehicle_NonOperator(BaseObjectData, EachAttributeOnl
     )
     """Contains a single cuboid geometry"""
 
-    num: list[Union[Impact__gTTC__Value, Impact__PrET__Value]] = field(
-        default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.num"), metadata=required
-    )
-    """Contains all numeric attributes"""
-
-    text: list[Union[BestDetectedSide, OpenDrive__RoadId, Impact__gTTC__ObjectId, Impact__PrET__ObjectId]] = field(
+    text: list[Union[BestDetectedSide, OpenDrive__RoadId]] = field(
         default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.text"), metadata=required
     )
     """Contains all textual attributes"""
@@ -79,6 +74,10 @@ class ObjectInFrameData__NonVehicle_NonOperator(BaseObjectData, EachAttributeOnl
             Acceleration__UStdDev,
             OpenDrive__LocalRoadCoordinates,
             OpenDrive__LocalRoadCoordinates__UStdDev,
+            Impact__gTTC__ObjectIds,
+            Impact__gTTC__Values,
+            Impact__PrET__ObjectIds,
+            Impact__PrET__Values,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.vec"), metadata=required)
     """Contains all vectorial attributes"""
