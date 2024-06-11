@@ -34,10 +34,10 @@ from aveas_openlabel.attributes.general import (
     Velocity__UStdDev,
 )
 from aveas_openlabel.attributes.impact import (
-    Impact__gTTC__ObjectId,
-    Impact__gTTC__Value,
-    Impact__PrET__ObjectId,
-    Impact__PrET__Value,
+    Impact__gTTC__ObjectIds,
+    Impact__gTTC__Values,
+    Impact__PrET__ObjectIds,
+    Impact__PrET__Values,
 )
 from aveas_openlabel.attributes.lights import (
     Lights__Brake,
@@ -94,14 +94,12 @@ class ObjectInFrameData__PassiveVehicle_NonOperator(BaseObjectData, EachAttribut
             Road__NumberLanes__Left__Physical,
             Road__NumberLanes__Right__Legal,
             Road__NumberLanes__Right__Physical,
-            Impact__gTTC__Value,
-            Impact__PrET__Value,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.num"), metadata=required)
     """Contains all numeric attributes"""
 
     text: list[
-        Union[BestDetectedSide, OpenDrive__RoadId, Road__Classification, Impact__gTTC__ObjectId, Impact__PrET__ObjectId]
+        Union[BestDetectedSide, OpenDrive__RoadId, Road__Classification]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.text"), metadata=required)
     """Contains all textual attributes"""
 
@@ -115,6 +113,10 @@ class ObjectInFrameData__PassiveVehicle_NonOperator(BaseObjectData, EachAttribut
             Acceleration__UStdDev,
             OpenDrive__LocalRoadCoordinates,
             OpenDrive__LocalRoadCoordinates__UStdDev,
+            Impact__gTTC__ObjectIds,
+            Impact__gTTC__Values,
+            Impact__PrET__ObjectIds,
+            Impact__PrET__Values,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.vec"), metadata=required)
     """Contains all vectorial attributes"""
