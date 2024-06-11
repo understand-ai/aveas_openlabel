@@ -83,7 +83,7 @@ class Impact__Frame(TextData):
 class Impact__gTTC__ObjectIds(VectorData):
     """
     Object IDs of the opposing traffic participants with a geometrical time-to-collision (gTTC) lower than
-    the value "threshold_gTTC" in `Metadata`.
+    the value "threshold_gttc" in `Metadata`.
     """
 
     val: tuple[ObjectUid, ...] = field(
@@ -110,7 +110,7 @@ class Impact__gTTC__Values(VectorData):
 class Impact__PrET__ObjectIds(VectorData):
     """
     Object IDs of the opposing traffic participants with a predicted encroachment time (PrET) lower than
-    the value "threshold_PrET" in `Metadata`.
+    the value "threshold_pret" in `Metadata`.
     """
 
     val: tuple[ObjectUid, ...] = field(

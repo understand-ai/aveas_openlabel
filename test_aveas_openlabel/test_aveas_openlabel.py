@@ -30,8 +30,8 @@ def test_must_be_instantiable_and_serializable_with_metadata_only() -> None:
         acquisition_partner="test",
         acquisition_date="yyyy-MM-ddTHH:mm:ss.FFFZ",
         projection_string="example projection string",
-        threshold_gTTC=1.0,
-        threshold_PrET=1.0,
+        threshold_gttc=1.0,
+        threshold_pret=1.0,
     )
     openlabel = AveasOpenLabel(metadata=metadata)
     openlabel.to_dict()
