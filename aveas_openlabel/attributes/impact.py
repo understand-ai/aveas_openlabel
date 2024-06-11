@@ -80,44 +80,50 @@ class Impact__Frame(TextData):
 
 
 @dataclass
-class Impact__gTTC__ObjectId(TextData):
-    """Object ID of the opposing traffic participant with the lowest overall geometrical time-to-collision (gTTC)."""
+class Impact__gTTC__ObjectIds(VectorData):
+    """
+    Object IDs of the opposing traffic participants with a geometrical time-to-collision (gTTC) lower than
+    the value "threshold_gTTC" in `Metadata`.
+    """
 
-    val: ObjectUid = field(default_factory=lambda: no_default(field="Impact__gTTC__ObjectId.val"), metadata=required)
-    """The object ID of the opposing traffic participant."""
+    val: tuple[ObjectUid, ...] = field(default_factory=lambda: no_default(field="Impact__gTTC__ObjectIds.val"), metadata=required)
+    """The object IDs of the opposing traffic participants."""
 
-    name: Literal["impact/gttc/object_id"] = field(default="impact/gttc/object_id")
-    """Is always 'impact/gttc/object_id'."""
-
-
-@dataclass
-class Impact__gTTC__Value(NumberData):
-    """Value of the geometrical time-to-collision (gTTC) for the traffic participant mentioned in `Impact__gTTC__ObjectId`"""
-
-    val: float = field(default_factory=lambda: no_default(field="Impact__gTTC__ObjectId.val"), metadata=required)
-    """Value of the geometrical time-to-collision (gTTC)."""
-
-    name: Literal["impact/gttc/value"] = field(default="impact/gttc/value")
-    """Is always 'impact/gttc/value'."""
+    name: Literal["impact/gttc/object_ids"] = field(default="impact/gttc/object_ids")
+    """Is always 'impact/gttc/object_ids'."""
 
 
 @dataclass
-class Impact__PrET__ObjectId(TextData):
-    """Object ID of the opposing traffic participant with the lowest overall predicted encroachment time (PrET)."""
+class Impact__gTTC__Values(VectorData):
+    """Values of the geometrical time-to-collision (gTTC) for the traffic participants mentioned in `Impact__gTTC__ObjectIds`."""
 
-    val: ObjectUid = field(default_factory=lambda: no_default(field="Impact__PrET__ObjectId.val"), metadata=required)
-    """The object ID of the opposing traffic participant."""
+    val: tuple[float, ...] = field(default_factory=lambda: no_default(field="Impact__gTTC__Values.val"), metadata=required)
+    """Values of the geometrical time-to-collision (gTTC)."""
 
-    name: Literal["impact/pret/object_id"] = field(default="impact/pret/object_id")
-    """Is always 'impact/pret/object_id'."""
+    name: Literal["impact/gttc/values"] = field(default="impact/gttc/values")
+    """Is always 'impact/gttc/values'."""
 
 
 @dataclass
-class Impact__PrET__Value(NumberData):
-    """Value of the predicted encroachment time (PrET) for the traffic participant mentioned in `Impact__PrET__ObjectId`"""
+class Impact__PrET__ObjectIds(VectorData):
+    """
+    Object IDs of the opposing traffic participants with a predicted encroachment time (PrET) lower than
+    the value "threshold_PrET" in `Metadata`.
+    """
 
-    val: float = field(default_factory=lambda: no_default(field="Impact__PrET__Value.val"), metadata=required)
-    """Value of the predicted encroachment time (PrET)."""
+    val: tuple[ObjectUid, ...] = field(default_factory=lambda: no_default(field="Impact__PrET__ObjectIds.val"), metadata=required)
+    """The object IDs of the opposing traffic participant."""
 
-    name: Literal["impact/pret/value"] = field(default="impact/pret/value")
-    """Is always 'impact/pret/value'."""
+    name: Literal["impact/pret/object_ids"] = field(default="impact/pret/object_ids")
+    """Is always 'impact/pret/object_ids'."""
+
+
+@dataclass
+class Impact__PrET__Values(VectorData):
+    """Values of the predicted encroachment time (PrET) for the traffic participants mentioned in `Impact__PrET__ObjectIds`."""
+
+    val: tuple[float, ...] = field(default_factory=lambda: no_default(field="Impact__PrET__Values.val"), metadata=required)
+    """Values of the predicted encroachment time (PrET)."""
+
+    name: Literal["impact/pret/values"] = field(default="impact/pret/values")
+    """Is always 'impact/pret/values'."""
