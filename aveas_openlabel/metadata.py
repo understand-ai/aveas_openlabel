@@ -95,13 +95,13 @@ class Metadata(BaseMetadata):
     Projection strings follow official parameter sets for proj-strings from EPSG.
     """
 
-    threshold_gTTC: float = field(default_factory=lambda: no_default(field="Metadata.threshold_gTTC"), metadata=required)
+    threshold_gttc: float = field(default_factory=lambda: no_default(field="Metadata.threshold_gttc"), metadata=required)
     """
     Traffic participants with a geometrical time-to-collision (gTTC) value lower than this threshold will appear in 
     the `Impact__gTTC__ObjectIds` and `Impact__gTTC__Values` attributes of this file. 
     """
 
-    threshold_PrET: float = field(default_factory=lambda: no_default(field="Metadata.threshold_PrET"), metadata=required)
+    threshold_pret: float = field(default_factory=lambda: no_default(field="Metadata.threshold_pret"), metadata=required)
     """
     Traffic participants with a predicted encroachment time (PrET) value lower than this threshold will appear in 
     the `Impact__PrET__ObjectIds` and `Impact__PrET__Values` attributes of this file. 
