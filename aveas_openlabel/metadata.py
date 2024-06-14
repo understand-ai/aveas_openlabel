@@ -106,3 +106,9 @@ class Metadata(BaseMetadata):
     Traffic participants with a predicted encroachment time (PrET) value lower than this threshold will appear in 
     the `Impact__PrET__ObjectIds` and `Impact__PrET__Values` attributes of this file. 
     """
+    
+    threshold_thw: float = field(default_factory=lambda: no_default(field="Metadata.threshold_thw"), metadata=required)
+    """
+    Traffic participants with a time headway value lower than this threshold will appear in 
+    the `Impact__THW__ObjectIds` and `Impact__THW_Values` attributes of this file. 
+    """
