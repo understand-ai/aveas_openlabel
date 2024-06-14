@@ -33,6 +33,12 @@ from aveas_openlabel.attributes.general import (
     Velocity,
     Velocity__UStdDev,
 )
+from aveas_openlabel.attributes.impact import (
+    Impact__gTTC__ObjectIds,
+    Impact__gTTC__Values,
+    Impact__PrET__ObjectIds,
+    Impact__PrET__Values,
+)
 from aveas_openlabel.attributes.open_drive import (
     OpenDrive__LocalRoadCoordinates,
     OpenDrive__LocalRoadCoordinates__UStdDev,
@@ -68,6 +74,10 @@ class ObjectInFrameData__NonVehicle_NonOperator(BaseObjectData, EachAttributeOnl
             Acceleration__UStdDev,
             OpenDrive__LocalRoadCoordinates,
             OpenDrive__LocalRoadCoordinates__UStdDev,
+            Impact__gTTC__ObjectIds,
+            Impact__gTTC__Values,
+            Impact__PrET__ObjectIds,
+            Impact__PrET__Values,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.vec"), metadata=required)
     """Contains all vectorial attributes"""

@@ -56,7 +56,7 @@ class AcquisitionMethod(str, Enum):
 class Metadata(BaseMetadata):
     """This JSON object contains metadata about the annotation file itself."""
 
-    aveas_schema_version: Literal["0.4.12"] = field(default="0.4.12")
+    aveas_schema_version: Literal["0.4.13"] = field(default="0.4.13")
     """The version of the aveas_openlabel library used to generate this file."""
 
     right_of_use: RightOfUse = field(default_factory=lambda: no_default(field="Metadata.right_of_use"), metadata=required)
@@ -93,4 +93,16 @@ class Metadata(BaseMetadata):
     """
     The geographic reference system used for the coordinates in this OpenLABEL-file and in corresponding OpenDRIVE-files. 
     Projection strings follow official parameter sets for proj-strings from EPSG.
+    """
+
+    threshold_gttc: float = field(default_factory=lambda: no_default(field="Metadata.threshold_gttc"), metadata=required)
+    """
+    Traffic participants with a geometrical time-to-collision (gTTC) value lower than this threshold will appear in 
+    the `Impact__gTTC__ObjectIds` and `Impact__gTTC__Values` attributes of this file. 
+    """
+
+    threshold_pret: float = field(default_factory=lambda: no_default(field="Metadata.threshold_pret"), metadata=required)
+    """
+    Traffic participants with a predicted encroachment time (PrET) value lower than this threshold will appear in 
+    the `Impact__PrET__ObjectIds` and `Impact__PrET__Values` attributes of this file. 
     """

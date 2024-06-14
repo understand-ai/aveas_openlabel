@@ -38,6 +38,12 @@ from aveas_openlabel.attributes.hmi_feedback import (
     HmiFeedback__Other,
     HmiFeedback__Visual,
 )
+from aveas_openlabel.attributes.impact import (
+    Impact__gTTC__ObjectIds,
+    Impact__gTTC__Values,
+    Impact__PrET__ObjectIds,
+    Impact__PrET__Values,
+)
 from aveas_openlabel.attributes.interior import (
     Interior__AcceleratorPedal,
     Interior__AutomatedControl__Lateral,
@@ -146,7 +152,13 @@ class ObjectInFrameData__NoRider(BaseObjectData, EachAttributeOnlyOnceEnforcer):
     """Contains all numeric attributes"""
 
     text: list[
-        Union[BestDetectedSide, Operator__FocussedObject, Operator__FocussedObject__Id, OpenDrive__RoadId, Road__Classification]
+        Union[
+            BestDetectedSide,
+            Operator__FocussedObject,
+            Operator__FocussedObject__Id,
+            OpenDrive__RoadId,
+            Road__Classification,
+        ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NoRider.text"), metadata=required)
     """Contains all textual attributes"""
 
@@ -167,6 +179,10 @@ class ObjectInFrameData__NoRider(BaseObjectData, EachAttributeOnlyOnceEnforcer):
             Operator__Pupil__UStdDev,
             Operator__HandInteractionArea,
             Operator__SixDoFRotationAndAcceleration,
+            Impact__gTTC__ObjectIds,
+            Impact__gTTC__Values,
+            Impact__PrET__ObjectIds,
+            Impact__PrET__Values,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NoRider.vec"), metadata=required)
     """Contains all vectorial attributes"""

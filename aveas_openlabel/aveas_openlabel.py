@@ -129,5 +129,7 @@ class AveasOpenLabel(BaseOpenLabel):
                 acquisition_partner="foo bar institute",
                 acquisition_date="2000-01-01T01:01:01.001Z",
                 projection_string="example projection string",
+                threshold_gttc=1.0,
+                threshold_pret=1.0,
             )
         )
