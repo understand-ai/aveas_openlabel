@@ -38,6 +38,8 @@ from aveas_openlabel.attributes.impact import (
     Impact__gTTC__Values,
     Impact__PrET__ObjectIds,
     Impact__PrET__Values,
+    Impact__THW__ObjectIds,
+    Impact__THW__Values
 )
 from aveas_openlabel.attributes.open_drive import (
     OpenDrive__LocalRoadCoordinates,
@@ -78,6 +80,8 @@ class ObjectInFrameData__NonVehicle_NonOperator(BaseObjectData, EachAttributeOnl
             Impact__gTTC__Values,
             Impact__PrET__ObjectIds,
             Impact__PrET__Values,
+            Impact__THW__ObjectIds,
+            Impact__THW__Values
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.vec"), metadata=required)
     """Contains all vectorial attributes"""

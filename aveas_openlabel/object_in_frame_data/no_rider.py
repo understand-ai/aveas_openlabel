@@ -43,6 +43,8 @@ from aveas_openlabel.attributes.impact import (
     Impact__gTTC__Values,
     Impact__PrET__ObjectIds,
     Impact__PrET__Values,
+    Impact__THW__ObjectIds,
+    Impact__THW__Values
 )
 from aveas_openlabel.attributes.interior import (
     Interior__AcceleratorPedal,
@@ -183,6 +185,8 @@ class ObjectInFrameData__NoRider(BaseObjectData, EachAttributeOnlyOnceEnforcer):
             Impact__gTTC__Values,
             Impact__PrET__ObjectIds,
             Impact__PrET__Values,
+            Impact__THW__ObjectIds,
+            Impact__THW__Values
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NoRider.vec"), metadata=required)
     """Contains all vectorial attributes"""
