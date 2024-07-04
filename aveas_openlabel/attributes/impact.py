@@ -140,8 +140,7 @@ class Impact__THW__ObjectIds(VectorData):
     """
 
     val: tuple[ObjectUid, ...] = field(
-        default_factory=lambda: no_default(field="Impact__THW__ObjectIds.val"), metadata=required
-    )
+        default_factory=lambda: no_default(field="Impact__THW__ObjectIds.val"), metadata=required)
     """The object IDs of the opposing traffic participants."""
 
     name: Literal["impact/thw/object_ids"] = field(default="impact/thw/object_ids")
