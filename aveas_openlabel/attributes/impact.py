@@ -116,7 +116,7 @@ class Impact__PrET__ObjectIds(VectorData):
     val: tuple[ObjectUid, ...] = field(
         default_factory=lambda: no_default(field="Impact__PrET__ObjectIds.val"), metadata=required
     )
-    """The object IDs of the opposing traffic participant."""
+    """The object IDs of the opposing traffic participants."""
 
     name: Literal["impact/pret/object_ids"] = field(default="impact/pret/object_ids")
     """Is always 'impact/pret/object_ids'."""
@@ -142,7 +142,7 @@ class Impact__THW__ObjectIds(VectorData):
     val: tuple[ObjectUid, ...] = field(
         default_factory=lambda: no_default(field="Impact__THW__ObjectIds.val"), metadata=required
     )
-    """The object IDs of the opposing traffic participant."""
+    """The object IDs of the opposing traffic participants."""
 
     name: Literal["impact/thw/object_ids"] = field(default="impact/thw/object_ids")
     """Is always 'impact/thw/object_ids'."""
@@ -150,10 +150,11 @@ class Impact__THW__ObjectIds(VectorData):
 
 @dataclass
 class Impact__THW__Values(VectorData):
-    """Values of time headway (THW) for the traffic participants mentioned in `Impact__THW__ObjectIds`."""
+    """Values of the time headway (THW) for the traffic participants mentioned in `Impact__THW__ObjectIds`."""
 
     val: tuple[float, ...] = field(default_factory=lambda: no_default(field="Impact__THW__Values.val"), metadata=required)
     """Values of the time headway (THW)."""
 
     name: Literal["impact/thw/values"] = field(default="impact/thw/values")
     """Is always 'impact/thw/values'."""
+    
