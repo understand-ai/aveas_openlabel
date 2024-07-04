@@ -44,7 +44,7 @@ from aveas_openlabel.attributes.impact import (
     Impact__PrET__ObjectIds,
     Impact__PrET__Values,
     Impact__THW__ObjectIds,
-    Impact__THW__Values
+    Impact__THW__Values,
 )
 from aveas_openlabel.attributes.interior import (
     Interior__AcceleratorPedal,
