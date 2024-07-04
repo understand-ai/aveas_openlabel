@@ -131,7 +131,7 @@ class Impact__PrET__Values(VectorData):
 
     name: Literal["impact/pret/values"] = field(default="impact/pret/values")
     """Is always 'impact/pret/values'."""
-    
+
 @dataclass
 class Impact__THW__ObjectIds(VectorData):
     """
@@ -157,4 +157,3 @@ class Impact__THW__Values(VectorData):
 
     name: Literal["impact/thw/values"] = field(default="impact/thw/values")
     """Is always 'impact/thw/values'."""
-    
