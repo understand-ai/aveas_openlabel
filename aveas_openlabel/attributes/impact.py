@@ -157,4 +157,3 @@ class Impact__THW__Values(VectorData):
 
     name: Literal["impact/thw/values"] = field(default="impact/thw/values")
     """Is always 'impact/thw/values'."""
-    
