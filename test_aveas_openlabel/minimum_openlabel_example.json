@@ -8,7 +8,8 @@
       "acquisition_date": "2000-01-01T01:01:01.001Z",
       "projection_string": "dummy projection string",
       "threshold_gttc": 1.0,
-      "threshold_pret": 1.0
+      "threshold_pret": 1.0,
+      "threshold_thw": 3.0
     }
   }
 }

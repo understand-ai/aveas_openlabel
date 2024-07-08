@@ -258,14 +258,3 @@ class Summary__Coordinates__ScenarioEnd__UStdDev(VectorData):
 
     name: Literal["summary/coordinates/scenario_end/ustddev"] = field(default="summary/coordinates/scenario_end/ustddev")
     """Is always 'summary/coordinates/scenario_end/ustddev'."""
-
-
-@dataclass
-class Summary__Frame__Appearance(VectorData):
-    """Frames of the first and last appearence of the object in the scenario."""
-
-    val: tuple[str, str] = field(default_factory=lambda: no_default(field="Summary__Frames__Appearance.val"), metadata=required)
-    """The (start, end) frames of the object in the scenario. """
-
-    name: Literal["summary/frame/appearance"] = field(default="summary/frame/appearance")
-    """Is always 'summary/frame/appearance'."""

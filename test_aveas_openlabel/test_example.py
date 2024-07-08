@@ -145,6 +145,7 @@ def test_example() -> None:
         projection_string="example projection string",
         threshold_gttc=1.0,
         threshold_pret=1.0,
+        threshold_thw=3.0,
     )
 
     # Create contexts
