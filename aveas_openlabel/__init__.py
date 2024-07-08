@@ -102,6 +102,7 @@ Static Attributes
     `Summary__Coordinates__ScenarioStart`           **O**     **O**      **O**  **O**  **O**              **O**             **O**         **O**          **O**               **O**          **O**      **O**    **O**
     `Summary__Coordinates__ScenarioStart__UStdDev`  **O**     **O**      **O**  **O**  **O**              **O**             **O**         **O**          **O**               **O**          **O**      **O**    **O**
     `Summary__Coordinates__ScenarioEnd`             **O**     **O**      **O**  **O**  **O**              **O**             **O**         **O**          **O**               **O**          **O**      **O**    **O**
+    `Summary__Frame__appearance`                    **O**     **O**      **O**  **O**  **O**              **O**             **O**         **O**          **O**               **O**          **O**      **O**    **O**
     `Summary__Coordinates__ScenarioEnd__UStdDev`    **O**     **O**      **O**  **O**  **O**              **O**             **O**         **O**          **O**               **O**          **O**      **O**    **O**
     `Operator__Age`                                 **—**     **O**      **O**  **O**  **O**              **O**             **O**         **O**          **—**               **O**          **—**      **O**    **O**
     `Operator__Gender`                              **—**     **O**      **O**  **O**  **O**              **O**             **O**         **O**          **—**               **O**          **—**      **O**    **O**

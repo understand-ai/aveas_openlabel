@@ -52,6 +52,7 @@ from aveas_openlabel.attributes.summary import (
     Summary__Coordinates__ScenarioEnd__UStdDev,
     Summary__Coordinates__ScenarioStart,
     Summary__Coordinates__ScenarioStart__UStdDev,
+    Summary__Frame__appearance,
     Summary__Speed__Max,
     Summary__Speed__Max__UStdDev,
     Summary__Speed__Min,
@@ -112,6 +113,7 @@ class ObjectData__Unsteerable_Unattached(BaseObjectData, EachAttributeOnlyOnceEn
             Summary__Coordinates__ScenarioStart__UStdDev,
             Summary__Coordinates__ScenarioEnd,
             Summary__Coordinates__ScenarioEnd__UStdDev,
+            Summary__Frame__appearance,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached.vec"), metadata=required)
     """Contains all vectorial attributes"""
