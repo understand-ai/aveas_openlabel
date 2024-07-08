@@ -26,7 +26,8 @@ from uai_openlabel import ObjectUid, TextData, VectorData, no_default
 class Impact__Point(VectorData):  # TODO: Koordinatensystem wie spezifizieren?
     """Point of first contact of the first collision (in this object's coordinates)"""
 
-    val: tuple[float, float] = field(default_factory=lambda: no_default(field="Impact__Point.val"), metadata=required)
+    val: tuple[float, float] = field(default_factory=lambda: no_default(field="Impact__Point.val"), metadata=required
+                                    )
     """The (x, y) coordinates of the collision point in (m)."""
 
     name: Literal["impact/point"] = field(default="impact/point")
@@ -116,7 +117,7 @@ class Impact__PrET__ObjectIds(VectorData):
     val: tuple[ObjectUid, ...] = field(
         default_factory=lambda: no_default(field="Impact__PrET__ObjectIds.val"), metadata=required
     )
-    """The object IDs of the opposing traffic participant."""
+    """The object IDs of the opposing traffic participants."""
 
     name: Literal["impact/pret/object_ids"] = field(default="impact/pret/object_ids")
     """Is always 'impact/pret/object_ids'."""
@@ -131,7 +132,7 @@ class Impact__PrET__Values(VectorData):
 
     name: Literal["impact/pret/values"] = field(default="impact/pret/values")
     """Is always 'impact/pret/values'."""
-    
+
 @dataclass
 class Impact__THW__ObjectIds(VectorData):
     """
@@ -142,7 +143,7 @@ class Impact__THW__ObjectIds(VectorData):
     val: tuple[ObjectUid, ...] = field(
         default_factory=lambda: no_default(field="Impact__THW__ObjectIds.val"), metadata=required
     )
-    """The object IDs of the opposing traffic participant."""
+    """The object IDs of the opposing traffic participants."""
 
     name: Literal["impact/thw/object_ids"] = field(default="impact/thw/object_ids")
     """Is always 'impact/thw/object_ids'."""
@@ -150,11 +151,10 @@ class Impact__THW__ObjectIds(VectorData):
 
 @dataclass
 class Impact__THW__Values(VectorData):
-    """Values of time headway (THW) for the traffic participants mentioned in `Impact__THW__ObjectIds`."""
+    """Values of the time headway (THW) for the traffic participants mentioned in `Impact__THW__ObjectIds`."""
 
     val: tuple[float, ...] = field(default_factory=lambda: no_default(field="Impact__THW__Values.val"), metadata=required)
     """Values of the time headway (THW)."""
 
     name: Literal["impact/thw/values"] = field(default="impact/thw/values")
     """Is always 'impact/thw/values'."""
-    
