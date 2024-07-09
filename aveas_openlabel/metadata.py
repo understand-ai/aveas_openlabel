@@ -56,7 +56,7 @@ class AcquisitionMethod(str, Enum):
 class Metadata(BaseMetadata):
     """This JSON object contains metadata about the annotation file itself."""
 
-    aveas_schema_version: Literal["0.4.13"] = field(default="0.4.13")
+    aveas_schema_version: Literal["0.4.14"] = field(default="0.4.14")
     """The version of the aveas_openlabel library used to generate this file."""
 
     right_of_use: RightOfUse = field(default_factory=lambda: no_default(field="Metadata.right_of_use"), metadata=required)
@@ -105,4 +105,10 @@ class Metadata(BaseMetadata):
     """
     Traffic participants with a predicted encroachment time (PrET) value lower than this threshold will appear in 
     the `Impact__PrET__ObjectIds` and `Impact__PrET__Values` attributes of this file. 
+    """
+
+    threshold_thw: float = field(default_factory=lambda: no_default(field="Metadata.threshold_thw"), metadata=required)
+    """
+    Traffic participants with a time headway (THW) value lower than this threshold will appear in 
+    the `Impact__THW__ObjectIds` and `Impact__THW__Values` attributes of this file. 
     """
