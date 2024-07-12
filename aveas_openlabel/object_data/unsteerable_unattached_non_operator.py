@@ -78,7 +78,12 @@ class ObjectData__Unsteerable_Unattached_NonOperator(BaseObjectData, EachAttribu
     ] = field(default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.num"), metadata=required)
     """Contains all numeric attributes"""
 
-    text: list[Union[Impact__Frame, Operator__Gender,]] = field(
+    text: list[
+        Union[
+            Impact__Frame,
+            Operator__Gender,
+        ]
+    ] = field(
         default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.text"), metadata=required
     )
     """Contains all textual attributes"""

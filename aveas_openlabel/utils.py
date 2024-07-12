@@ -19,8 +19,7 @@ K = TypeVar("K")
 V = TypeVar("V")
 
 
-class ValidationError(ValueError):
-    ...
+class ValidationError(ValueError): ...
 
 
 def validate_dict_keys_and_value_types(dict_to_validate: dict[K, V], validation_template: dict[K, type[V]]) -> None:
