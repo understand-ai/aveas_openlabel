@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "aveas_openlabel"
 # When bumping this version, don't forget to update aveas_openlabel.metadata.Metadata.aveas_schema_version!
-version = "0.4.14"
+version = "0.4.15"
 description = "The AVEAS OpenLABEL specification"
 license = "MIT"
 authors = ["understand.ai <postmaster@understand.ai>"]
@@ -16,16 +16,16 @@ name = "PyPI"
 priority = "default"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.12"
+python = ">=3.9,<3.13"
 apischema = { version = "^0.18.0", source = "PyPI" }
-uai_openlabel = { version = "^0.3.7", source = "PyPI" }
+uai_openlabel = { version = "^0.3.8", source = "PyPI" }
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.0.0"
 pydoctor = "^23.4.1"
 pytest = "^7.0.1"
 pytest-cov = "^3.0.0"
-black = {extras = ["d"], version = "^22.3.0"}
+black = {extras = ["d"], version = "^24.4.2"}
 ruff = "^0.2.0"
 
 [build-system]
@@ -34,7 +34,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 128
-target-version = ['py39', 'py310', 'py311']
+target-version = ['py39', 'py310', 'py311', 'py312']
 
 [tool.ruff.lint]
 select = [ "E","F","W","I","N","TRY","RUF" ]
