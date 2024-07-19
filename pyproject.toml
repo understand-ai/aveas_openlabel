@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "aveas_openlabel"
 # When bumping this version, don't forget to update aveas_openlabel.metadata.Metadata.aveas_schema_version!
-version = "0.4.15"
+version = "0.4.16"
 description = "The AVEAS OpenLABEL specification"
 license = "MIT"
 authors = ["understand.ai <postmaster@understand.ai>"]

@@ -49,7 +49,6 @@ from aveas_openlabel.attributes.summary import (
     Summary__Coordinates__ScenarioEnd__UStdDev,
     Summary__Coordinates__ScenarioStart,
     Summary__Coordinates__ScenarioStart__UStdDev,
-    Summary__Frame__appearance,
     Summary__Speed__Max,
     Summary__Speed__Max__UStdDev,
     Summary__Speed__Min,
@@ -79,23 +78,12 @@ class ObjectData__Unsteerable_Unattached_NonOperator(BaseObjectData, EachAttribu
     ] = field(default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.num"), metadata=required)
     """Contains all numeric attributes"""
 
-<<<<<<< .mine
-    text: list[Union[Impact__Frame, Operator__Gender]] = field(
-
-
-
-
-
-=======
     text: list[
         Union[
             Impact__Frame,
             Operator__Gender,
         ]
-    ] = field(
->>>>>>> .theirs
-        default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.text"), metadata=required
-    )
+    ] = field(default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.text"), metadata=required)
     """Contains all textual attributes"""
 
     vec: list[
@@ -113,7 +101,6 @@ class ObjectData__Unsteerable_Unattached_NonOperator(BaseObjectData, EachAttribu
             Summary__Coordinates__ScenarioStart__UStdDev,
             Summary__Coordinates__ScenarioEnd,
             Summary__Coordinates__ScenarioEnd__UStdDev,
-            Summary__Frame__appearance,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.vec"), metadata=required)
     """Contains all vectorial attributes"""

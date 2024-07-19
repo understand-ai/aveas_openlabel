@@ -20,6 +20,7 @@ from typing import Literal
 
 from apischema.metadata import required
 from uai_openlabel import (
+    NumberData,
     TextData,
     VectorData,
     no_default,
@@ -38,6 +39,31 @@ class OpenDrive__RoadId(TextData):
 
 
 @dataclass
+class OpenDrive__LaneId(TextData):
+    """Lane ID the object is moving on, corresponding to the Road ID (stated in `OpenDrive__RoadId`) in the OpenDRIVE file"""
+
+    val: str = field(default_factory=lambda: no_default(field="OpenDrive__LaneId.val"), metadata=required)
+    """The OpenDRIVE lane ID"""
+
+    name: Literal["open_drive/lane_id"] = field(default="open_drive/lane_id")
+    """Is always 'open_drive/lane_id'"""
+
+
+@dataclass
+class OpenDrive__LanePosition(NumberData):
+    """Relative lane position of the object which is moving on the corresponding Lane ID (stated in `OpenDrive__LaneId`) in the OpenDRIVE file. Range between -0.5 (right border) and 0.5 (left border)"""
+
+    val: float = field(default_factory=lambda: no_default(field="OpenDrive__LanePosition.val"), metadata=required)
+    """Relative lane position of object on the OpenDRIVE lane"""
+
+    name: Literal["open_drive/lane_position"] = field(default="open_drive/lane_position")
+    """Is always 'open_drive/lane_position'"""
+
+    def __post_init__(self) -> None:
+        if self.val < -0.5 or self.val > 0.5:
+            raise ValueError("val can only be between -0.5 and 0.5.")
+
+@dataclass
 class OpenDrive__LocalRoadCoordinates(VectorData):
     """The bounding box position in the local road coordinates as defined in OpenDRIVE"""
 
@@ -46,7 +72,7 @@ class OpenDrive__LocalRoadCoordinates(VectorData):
     )
     """The (s, t) tuple of the local road coordinates ."""
 
-    name: Literal["local_road_coordinates"] = field(default="local_road_coordinates")
+    name: Literal["open_drive/local_road_coordinates"] = field(default="open_drive/local_road_coordinates")
     """Is always 'open_drive/local_road_coordinates'"""
 
 

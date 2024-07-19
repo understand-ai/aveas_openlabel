@@ -42,6 +42,8 @@ from aveas_openlabel.attributes.impact import (
     Impact__THW__Values,
 )
 from aveas_openlabel.attributes.open_drive import (
+    OpenDrive__LaneId,
+    OpenDrive__LanePosition,
     OpenDrive__LocalRoadCoordinates,
     OpenDrive__LocalRoadCoordinates__UStdDev,
     OpenDrive__RoadId,
@@ -80,6 +82,7 @@ class ObjectInFrameData__NonVehicle(BaseObjectData, EachAttributeOnlyOnceEnforce
             Operator__HeadRotation,
             Operator__HeadRotation__UStdDev,
             Operator__ViewingAngle,
+            OpenDrive__LanePosition,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle.num"), metadata=required)
     """Contains all numeric attributes"""
@@ -90,6 +93,7 @@ class ObjectInFrameData__NonVehicle(BaseObjectData, EachAttributeOnlyOnceEnforce
             Operator__FocussedObject,
             Operator__FocussedObject__Id,
             OpenDrive__RoadId,
+            OpenDrive__LaneId,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle.text"), metadata=required)
     """Contains all textual attributes"""
