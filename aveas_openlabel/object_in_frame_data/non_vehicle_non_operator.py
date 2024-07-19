@@ -69,9 +69,7 @@ class ObjectInFrameData__NonVehicle_NonOperator(BaseObjectData, EachAttributeOnl
             OpenDrive__RoadId,
             OpenDrive__LaneId,
         ]
-    ] = field(
-    default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.text"), metadata=required
-    )
+    ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.text"), metadata=required)
     """Contains all textual attributes"""
 
     num: list[Union[OpenDrive__LanePosition,]] = field(

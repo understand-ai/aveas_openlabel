@@ -82,8 +82,9 @@ class ObjectData__Unsteerable_Unattached_NonOperator(BaseObjectData, EachAttribu
         Union[
             Impact__Frame,
             Operator__Gender,
-        ]
-    ] = field(default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.text"), metadata=required)
+            ] = field(
+                default_factory=lambda: no_default(field="ObjectData__Unsteerable_Unattached_NonOperator.text"), metadata=required
+            )
     """Contains all textual attributes"""
 
     vec: list[
