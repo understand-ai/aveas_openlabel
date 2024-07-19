@@ -63,6 +63,7 @@ class OpenDrive__LanePosition(NumberData):
         if self.val < -0.5 or self.val > 0.5:
             raise ValueError("val can only be between -0.5 and 0.5.")
 
+
 @dataclass
 class OpenDrive__LocalRoadCoordinates(VectorData):
     """The bounding box position in the local road coordinates as defined in OpenDRIVE"""
