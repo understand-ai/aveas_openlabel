@@ -50,6 +50,8 @@ from aveas_openlabel.attributes.lights import (
     Lights__Indicator__Right,
 )
 from aveas_openlabel.attributes.open_drive import (
+    OpenDrive__LaneId,
+    OpenDrive__LanePosition,
     OpenDrive__LocalRoadCoordinates,
     OpenDrive__LocalRoadCoordinates__UStdDev,
     OpenDrive__RoadId,
@@ -96,13 +98,19 @@ class ObjectInFrameData__PassiveVehicle_NonOperator(BaseObjectData, EachAttribut
             Road__NumberLanes__Left__Physical,
             Road__NumberLanes__Right__Legal,
             Road__NumberLanes__Right__Physical,
+            OpenDrive__LanePosition,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.num"), metadata=required)
     """Contains all numeric attributes"""
 
-    text: list[Union[BestDetectedSide, OpenDrive__RoadId, Road__Classification]] = field(
-        default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.text"), metadata=required
-    )
+    text: list[
+        Union[
+            BestDetectedSide,
+            Road__Classification,
+            OpenDrive__RoadId,
+            OpenDrive__LaneId,
+        ]
+    ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__PassiveVehicle_NonOperator.text"), metadata=required)
     """Contains all textual attributes"""
 
     vec: list[

@@ -42,6 +42,8 @@ from aveas_openlabel.attributes.impact import (
     Impact__THW__Values,
 )
 from aveas_openlabel.attributes.open_drive import (
+    OpenDrive__LaneId,
+    OpenDrive__LanePosition,
     OpenDrive__LocalRoadCoordinates,
     OpenDrive__LocalRoadCoordinates__UStdDev,
     OpenDrive__RoadId,
@@ -61,10 +63,19 @@ class ObjectInFrameData__NonVehicle_NonOperator(BaseObjectData, EachAttributeOnl
     )
     """Contains a single cuboid geometry"""
 
-    text: list[Union[BestDetectedSide, OpenDrive__RoadId]] = field(
-        default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.text"), metadata=required
-    )
+    text: list[
+        Union[
+            BestDetectedSide,
+            OpenDrive__RoadId,
+            OpenDrive__LaneId,
+        ]
+    ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.text"), metadata=required)
     """Contains all textual attributes"""
+
+    num: list[Union[OpenDrive__LanePosition,]] = field(
+        default_factory=lambda: no_default(field="ObjectInFrameData__NonVehicle_NonOperator.num"), metadata=required
+    )
+    """Contains all numeric attributes"""
 
     vec: list[
         Union[

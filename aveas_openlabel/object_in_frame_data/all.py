@@ -66,6 +66,8 @@ from aveas_openlabel.attributes.lights import (
     Lights__Indicator__Right,
 )
 from aveas_openlabel.attributes.open_drive import (
+    OpenDrive__LaneId,
+    OpenDrive__LanePosition,
     OpenDrive__LocalRoadCoordinates,
     OpenDrive__LocalRoadCoordinates__UStdDev,
     OpenDrive__RoadId,
@@ -151,6 +153,7 @@ class ObjectInFrameData__All(BaseObjectData, EachAttributeOnlyOnceEnforcer):
             Road__NumberLanes__Right__Legal,
             Road__NumberLanes__Right__Physical,
             Road__SpeedLimit,
+            OpenDrive__LanePosition,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__All.num"), metadata=required)
     """Contains all numeric attributes"""
@@ -161,6 +164,7 @@ class ObjectInFrameData__All(BaseObjectData, EachAttributeOnlyOnceEnforcer):
             Operator__FocussedObject,
             Operator__FocussedObject__Id,
             OpenDrive__RoadId,
+            OpenDrive__LaneId,
             Road__Classification,
         ]
     ] = field(default_factory=lambda: no_default(field="ObjectInFrameData__All.text"), metadata=required)
