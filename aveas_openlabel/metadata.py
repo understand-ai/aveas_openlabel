@@ -89,6 +89,12 @@ class Metadata(BaseMetadata):
     - Z: 'Z' if the time zone is UTC, '±[hh]:[mm]', '±[hh][mm]', or '±[hh]' otherwise, ex. '+0100'
     """
 
+    opendrive: str = field(default_factory=lambda: no_default(field="Metadata.opendrive"), metadata=required)
+    """
+    The name of the OpenDRIVE file belonging to the OpenLABEL, i.e., OpenDRIVE related specifications such as the lane or road ID refer to this OpenDRIVE file. 
+    The OpenDRIVE file has to use the projection string indicated under "projection_string".
+    """
+    
     projection_string: str = field(default_factory=lambda: no_default(field="Metadata.projection_string"), metadata=required)
     """
     The geographic reference system used for the coordinates in this OpenLABEL-file and in corresponding OpenDRIVE-files. 
