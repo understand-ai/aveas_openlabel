@@ -56,7 +56,7 @@ class AcquisitionMethod(str, Enum):
 class Metadata(BaseMetadata):
     """This JSON object contains metadata about the annotation file itself."""
 
-    aveas_schema_version: Literal["0.4.16"] = field(default="0.4.16")
+    aveas_schema_version: Literal["0.4.17"] = field(default="0.4.17")
     """The version of the aveas_openlabel library used to generate this file."""
 
     right_of_use: RightOfUse = field(default_factory=lambda: no_default(field="Metadata.right_of_use"), metadata=required)
@@ -87,6 +87,12 @@ class Metadata(BaseMetadata):
     - ss: seconds with leading zero
     - FFF: Milliseconds with leading zeros
     - Z: 'Z' if the time zone is UTC, '±[hh]:[mm]', '±[hh][mm]', or '±[hh]' otherwise, ex. '+0100'
+    """
+
+    opendrive: str = field(default_factory=lambda: no_default(field="Metadata.opendrive"), metadata=required)
+    """
+    The name of the OpenDRIVE file which contains specifications that fields in this OpenLABEL refer to.
+    The OpenDRIVE file has to use the projection string indicated under "Metadata.projection_string".
     """
 
     projection_string: str = field(default_factory=lambda: no_default(field="Metadata.projection_string"), metadata=required)
