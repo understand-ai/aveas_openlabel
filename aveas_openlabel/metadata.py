@@ -91,10 +91,10 @@ class Metadata(BaseMetadata):
 
     opendrive: str = field(default_factory=lambda: no_default(field="Metadata.opendrive"), metadata=required)
     """
-    The name of the OpenDRIVE file belonging to the OpenLABEL, i.e., OpenDRIVE related specifications such as the lane or road ID refer to this OpenDRIVE file. 
+    The name of the OpenDRIVE file which contains specifications that fields in this OpenLABEL refer to.
     The OpenDRIVE file has to use the projection string indicated under "projection_string".
     """
-    
+
     projection_string: str = field(default_factory=lambda: no_default(field="Metadata.projection_string"), metadata=required)
     """
     The geographic reference system used for the coordinates in this OpenLABEL-file and in corresponding OpenDRIVE-files. 
