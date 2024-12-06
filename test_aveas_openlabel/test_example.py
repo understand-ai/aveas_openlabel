@@ -142,6 +142,7 @@ def test_example() -> None:
         acquisition_method=acquisition_method,
         acquisition_partner=acquisition_partner,
         acquisition_date=acquisition_date,
+        opendrive="example.XODR",
         projection_string="example projection string",
         threshold_gttc=1.0,
         threshold_pret=1.0,

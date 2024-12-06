@@ -6,6 +6,7 @@
       "acquisition_method": "in-vehicle",
       "acquisition_partner": "understand.ai",
       "acquisition_date": "2000-01-01T01:01:01.001Z",
+      "opendrive": "example.xodr",
       "projection_string": "dummy projection string",
       "threshold_gttc": 1.0,
       "threshold_pret": 1.0,

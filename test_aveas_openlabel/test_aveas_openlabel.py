@@ -29,6 +29,7 @@ def test_must_be_instantiable_and_serializable_with_metadata_only() -> None:
         acquisition_method=AcquisitionMethod.IN_VEHICLE,
         acquisition_partner="test",
         acquisition_date="yyyy-MM-ddTHH:mm:ss.FFFZ",
+        opendrive="example.xodr",
         projection_string="example projection string",
         threshold_gttc=1.0,
         threshold_pret=1.0,
