@@ -17,6 +17,7 @@ from uai_openlabel import (
     CoordinateSystemUid,
     EventUid,
     FrameInterval,
+    ObjectData,
     ObjectUid,
     Uid,
 )
@@ -66,8 +67,6 @@ from aveas_openlabel.attributes.summary import (
     Summary__SteeringWheelAngle__Max,
     Summary__SteeringWheelAngle__Min,
 )
-from aveas_openlabel.classifications.car import Car
-from aveas_openlabel.classifications.truck import Truck
 from aveas_openlabel.contexts.environment_context import (
     EnvironmentContext,
     EnvironmentContextData,
@@ -118,8 +117,7 @@ from aveas_openlabel.event import (
     RoleBParticipantIDs,
 )
 from aveas_openlabel.metadata import AcquisitionMethod, Metadata, RightOfUse
-from aveas_openlabel.object_data.unattached import ObjectData__Unattached
-from aveas_openlabel.object_in_frame_data.no_rider import ObjectInFrameData__NoRider
+from aveas_openlabel.object import Object
 
 
 def test_example() -> None:
@@ -263,7 +261,7 @@ def test_example() -> None:
     open_drive_local_road_coordinates = OpenDrive__LocalRoadCoordinates((0, 0))
     brake_pressure = Interior__BrakePedal(0)
 
-    ObjectInFrameData__NoRider(
+    ObjectData(
         boolean=[brake_lights, indicator_left, indicator_right, front_lights, daytime_lights, high_beam_lights],
         cuboid=[three_d_bounding_box_euler],
         vec=[velocity, acceleration, open_drive_local_road_coordinates],
@@ -294,7 +292,7 @@ def test_example() -> None:
     open_drive_road_id = OpenDrive__RoadId("1")
     open_drive_local_road_coordinates = OpenDrive__LocalRoadCoordinates((0, 0))
 
-    ObjectInFrameData__NoRider(
+    ObjectData(
         boolean=[],
         num=[
             speed_limit_value,
@@ -321,7 +319,7 @@ def test_example() -> None:
     summary_start_coordinate = Summary__Coordinates__ScenarioStart((0, 0, 0))
     summary_end_coordinate = Summary__Coordinates__ScenarioEnd((0, 0, 0))
 
-    car_object_data = ObjectData__Unattached(
+    car_object_data = ObjectData(
         boolean=[is_recorder],
         num=[
             summary_speed_max,
@@ -335,7 +333,7 @@ def test_example() -> None:
         vec=[dimensions_size, summary_start_coordinate, summary_end_coordinate],
     )
 
-    car = Car(name="Car01", type="vehicle/car", object_data=car_object_data)
+    car = Object(name="Car01", type="vehicle/car", object_data=car_object_data)
 
     # sample truck
     is_recorder = IsRecorder(False)
@@ -347,14 +345,14 @@ def test_example() -> None:
     summary_start_coordinate = Summary__Coordinates__ScenarioStart((0, 0, 0))
     summary_end_coordinate = Summary__Coordinates__ScenarioEnd((0, 0, 0))
 
-    truck_object_data = ObjectData__Unattached(
+    truck_object_data = ObjectData(
         boolean=[is_recorder],
         num=[summary_speed_max, summary_speed_min, summary_accel_max, summary_accel_min],
         text=[],
         vec=[dimensions_size, summary_start_coordinate, summary_end_coordinate],
     )
 
-    truck = Truck(name="Truck01", type="vehicle/truck", object_data=truck_object_data)
+    truck = Object(name="Truck01", type="vehicle/truck", object_data=truck_object_data)
 
     scenario_objects = {ObjectUid("00000001"): car, ObjectUid("00000001"): truck}
 
