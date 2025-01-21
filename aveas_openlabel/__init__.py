@@ -49,7 +49,6 @@ A JSON schema file can be extracted from the root AveasOpenLabel class.
 
 """
 
-
 # Copyright © 2024 understandAI GmbH
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
