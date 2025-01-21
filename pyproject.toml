@@ -13,7 +13,7 @@ include = ["aveas_openlabel/py.typed"]
 
 [[tool.poetry.source]]
 name = "PyPI"
-priority = "default"
+priority = "primary"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.13"
@@ -21,11 +21,11 @@ apischema = { version = "^0.18.0", source = "PyPI" }
 uai_openlabel = { version = "^0.3.8", source = "PyPI" }
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.0.0"
+mypy = "^1.14.0"
 pydoctor = "^23.4.1"
 pytest = "^7.0.1"
 pytest-cov = "^3.0.0"
-black = {extras = ["d"], version = "^24.4.2"}
+black = {extras = ["d"], version = "^24.10.0"}
 ruff = "^0.2.0"
 
 [build-system]
