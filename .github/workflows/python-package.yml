@@ -37,7 +37,7 @@ jobs:
 
     - name: Lint with ruff
       run: |
-        poetry run ruff .
+        poetry run ruff check .
       continue-on-error: false
 
     - name: Format with black
