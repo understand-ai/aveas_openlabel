@@ -13,7 +13,7 @@ from uai_openlabel import (
 
 
 @dataclass
-class BoundingBox(ThreeDBoundingBoxEuler):
+class MotionBoundingBox(ThreeDBoundingBoxEuler):
     """
         A cuboid in 3D Euclidean space with a position defined in world coordinates and an orientation defined via Euler angles.
     For vehicles, the bounding box shall be aligned with the vehicle coordinates according to ISO 8855. The width shall be chosen in accordance with the annotation / labeling guidelines ['], namely such that an overlap of the outlines of two vehicles typically implies a critical collision between the vehicles. Side-view mirrors and antennas, for example, should typically omitted.
@@ -24,16 +24,16 @@ class BoundingBox(ThreeDBoundingBoxEuler):
     """
 
     val: tuple[float, float, float, float, float, float, float, float, float] = field(
-        default_factory=lambda: no_default(field="BoundingBox.val"), metadata=required
+        default_factory=lambda: no_default(field="MotionBoundingBox.val"), metadata=required
     )
-    """Bounding box"""
+    """Motion bounding_box value"""
 
     name: Literal["object/motion/bounding_box"] = field(default="object/motion/bounding_box")
     """Is always object/motion/bounding_box"""
 
 
 @dataclass
-class BoundingBoxMaximumExtents(ThreeDBoundingBoxEuler):
+class MotionBoundingBoxMax(ThreeDBoundingBoxEuler):
     """
         Bounding box over the maximum extents of the object, including smaller or soft parts, such as antennas and side-view mirrors for vehicles, which are omitted in object/motion/bounding_box.
     It shall be aligned as object/motion/bounding_box, however, the position may differ to shift the center point of the bounding box.
@@ -43,16 +43,16 @@ class BoundingBoxMaximumExtents(ThreeDBoundingBoxEuler):
     """
 
     val: tuple[float, float, float, float, float, float, float, float, float] = field(
-        default_factory=lambda: no_default(field="BoundingBoxMaximumExtents.val"), metadata=required
+        default_factory=lambda: no_default(field="MotionBoundingBoxMax.val"), metadata=required
     )
-    """Bounding box (maximum extents)"""
+    """Motion bounding_box_max value"""
 
     name: Literal["object/motion/bounding_box_max"] = field(default="object/motion/bounding_box_max")
     """Is always object/motion/bounding_box_max"""
 
 
 @dataclass
-class BestDetectedSide(TextData):
+class MotionBestDetectedSide(TextData):
     """
         The classification of the best (most accurately) detected 2D bounding box side of the object.
     Measurement unit: (dimensionless)
@@ -66,15 +66,15 @@ class BestDetectedSide(TextData):
      - CENTER: The object's center is detected best.
     """
 
-    val: str = field(default_factory=lambda: no_default(field="BestDetectedSide.val"), metadata=required)
-    """Best detected side"""
+    val: str = field(default_factory=lambda: no_default(field="MotionBestDetectedSide.val"), metadata=required)
+    """Motion best_detected_side value"""
 
     name: Literal["object/motion/best_detected_side"] = field(default="object/motion/best_detected_side")
     """Is always object/motion/best_detected_side"""
 
 
 @dataclass
-class BestDetectedPoint(VectorData):
+class MotionBestDetectedPoint(VectorData):
     """
         (x, y) or (x, y, z) coordinates of best detectable point of 3D bounding box of objects.
     Measurement unit: m
@@ -83,16 +83,16 @@ class BestDetectedPoint(VectorData):
     """
 
     val: tuple[Number, Number, Number] = field(
-        default_factory=lambda: no_default(field="BestDetectedPoint.val"), metadata=required
+        default_factory=lambda: no_default(field="MotionBestDetectedPoint.val"), metadata=required
     )
-    """Best detected point"""
+    """Motion best_detected_point value"""
 
     name: Literal["object/motion/best_detected_point"] = field(default="object/motion/best_detected_point")
     """Is always object/motion/best_detected_point"""
 
 
 @dataclass
-class RoadCoordinates(VectorData):
+class MotionRoadCoordinates(VectorData):
     """
         The fine road coordinates of the center of the object's bounding box.
     Measurement unit: (complex)
@@ -100,15 +100,15 @@ class RoadCoordinates(VectorData):
     Recommended distribution: (see data type definition)
     """
 
-    val: tuple[str, ...] = field(default_factory=lambda: no_default(field="RoadCoordinates.val"), metadata=required)
-    """Road coordinates"""
+    val: tuple[str, ...] = field(default_factory=lambda: no_default(field="MotionRoadCoordinates.val"), metadata=required)
+    """Motion road_coordinates value"""
 
     name: Literal["object/motion/road_coordinates"] = field(default="object/motion/road_coordinates")
     """Is always object/motion/road_coordinates"""
 
 
 @dataclass
-class Velocity(VectorData):
+class MotionVelocity(VectorData):
     """
         Velocity data of the object in world coordinates.
     Measurement unit: (complex)
@@ -124,16 +124,16 @@ class Velocity(VectorData):
     """
 
     val: tuple[Number, Number, Number, Number, Number, Number] = field(
-        default_factory=lambda: no_default(field="Velocity.val"), metadata=required
+        default_factory=lambda: no_default(field="MotionVelocity.val"), metadata=required
     )
-    """Velocity"""
+    """Motion velocity value"""
 
     name: Literal["object/motion/velocity"] = field(default="object/motion/velocity")
     """Is always object/motion/velocity"""
 
 
 @dataclass
-class SourceOfVelocity(VectorData):
+class MotionVelocitySource(VectorData):
     """
         List of all parameter names whose data was used to fuse / filter the velocity.
     If the list contains object/motion/velocity, then a direct velocity measurement (such as direct GNSS velocities, Doppler or wheel odometry recording) must have influenced the data.
@@ -142,15 +142,15 @@ class SourceOfVelocity(VectorData):
     Recommended distribution: (none)
     """
 
-    val: tuple[str, ...] = field(default_factory=lambda: no_default(field="SourceOfVelocity.val"), metadata=required)
-    """Source of velocity"""
+    val: tuple[str, ...] = field(default_factory=lambda: no_default(field="MotionVelocitySource.val"), metadata=required)
+    """Motion velocity_source value"""
 
     name: Literal["object/motion/velocity_source"] = field(default="object/motion/velocity_source")
     """Is always object/motion/velocity_source"""
 
 
 @dataclass
-class Acceleration(VectorData):
+class MotionAcceleration(VectorData):
     """
         Acceleration data of the object in world coordinates
     Measurement unit: (complex)
@@ -166,16 +166,16 @@ class Acceleration(VectorData):
     """
 
     val: tuple[Number, Number, Number, Number, Number, Number] = field(
-        default_factory=lambda: no_default(field="Acceleration.val"), metadata=required
+        default_factory=lambda: no_default(field="MotionAcceleration.val"), metadata=required
     )
-    """Acceleration"""
+    """Motion acceleration value"""
 
     name: Literal["object/motion/acceleration"] = field(default="object/motion/acceleration")
     """Is always object/motion/acceleration"""
 
 
 @dataclass
-class SourceOfAcceleration(VectorData):
+class MotionAccelerationSource(VectorData):
     """
         List of all parameter names whose data was used to fuse / filter the acceleration.
     If the list contains object/motion/acceleration, then a direct acceleration measurement (such as accelerometer recording) must have influenced the data.
@@ -184,15 +184,15 @@ class SourceOfAcceleration(VectorData):
     Recommended distribution: (none)
     """
 
-    val: tuple[str, ...] = field(default_factory=lambda: no_default(field="SourceOfAcceleration.val"), metadata=required)
-    """Source of acceleration"""
+    val: tuple[str, ...] = field(default_factory=lambda: no_default(field="MotionAccelerationSource.val"), metadata=required)
+    """Motion acceleration_source value"""
 
     name: Literal["object/motion/acceleration_source"] = field(default="object/motion/acceleration_source")
     """Is always object/motion/acceleration_source"""
 
 
 @dataclass
-class MeanSteerAngle(NumberData):
+class MotionMeanSteerAngle(NumberData):
     """
         Average of the left and right hand steer angles on the front axle, according to DIN ISO 8855.
     Measurement unit: rad
@@ -200,15 +200,15 @@ class MeanSteerAngle(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="MeanSteerAngle.val"), metadata=required)
-    """Mean steer angle"""
+    val: float = field(default_factory=lambda: no_default(field="MotionMeanSteerAngle.val"), metadata=required)
+    """Motion mean_steer_angle value"""
 
     name: Literal["object/motion/mean_steer_angle"] = field(default="object/motion/mean_steer_angle")
     """Is always object/motion/mean_steer_angle"""
 
 
 @dataclass
-class SlipAngle(NumberData):
+class MotionSlipAngle(NumberData):
     """
         Angle from the vehicle's forward axis to the vertical projection of the vehicle velocity on to the ground plane, about the Z-axis, according to DIN ISO 8855.
     Measurement unit: rad
@@ -216,15 +216,15 @@ class SlipAngle(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="SlipAngle.val"), metadata=required)
-    """Slip angle"""
+    val: float = field(default_factory=lambda: no_default(field="MotionSlipAngle.val"), metadata=required)
+    """Motion slip_angle value"""
 
     name: Literal["object/motion/slip_angle"] = field(default="object/motion/slip_angle")
     """Is always object/motion/slip_angle"""
 
 
 @dataclass
-class AngleRelativeToRoad(NumberData):
+class MotionRelativeRoadAngle(NumberData):
     """
         Angle from the tangent direction of the road that the vehicle is currently driving on, towards the vehicle's forward axis, such that the tangent direction is oriented towards the forward direction of the lane that the vehicle is currently driving on.
     Positive angles denote a CCW rotation of the vehicle w.r.t. the forward direction of the road.  Values outside the range of [−π/2, π/2] typically indicate a vehicle driving against the lane's intended direction of travel.
@@ -233,8 +233,8 @@ class AngleRelativeToRoad(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="AngleRelativeToRoad.val"), metadata=required)
-    """Angle relative to road"""
+    val: float = field(default_factory=lambda: no_default(field="MotionRelativeRoadAngle.val"), metadata=required)
+    """Motion relative_road_angle value"""
 
     name: Literal["object/motion/relative_road_angle"] = field(default="object/motion/relative_road_angle")
     """Is always object/motion/relative_road_angle"""

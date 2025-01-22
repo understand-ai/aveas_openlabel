@@ -14,7 +14,7 @@ from uai_openlabel import (
 
 
 @dataclass
-class ObjectClassification(TextData):
+class CharacteristicsObjectClassification(TextData):
     """
 
     Measurement unit: (dimensionless)
@@ -38,8 +38,8 @@ class ObjectClassification(TextData):
      - PUSHABLE_PULLABLE: None
     """
 
-    val: str = field(default_factory=lambda: no_default(field="ObjectClassification.val"), metadata=required)
-    """Object classification"""
+    val: str = field(default_factory=lambda: no_default(field="CharacteristicsObjectClassification.val"), metadata=required)
+    """Characteristics object_classification value"""
 
     name: Literal["object/characteristics/object_classification"] = field(
         default="object/characteristics/object_classification"
@@ -48,7 +48,7 @@ class ObjectClassification(TextData):
 
 
 @dataclass
-class DriverSide(TextData):
+class CharacteristicsDriverSide(TextData):
     """
         Describes on which side the driver is located, in particular due to left-hand vs. right-hand traffic, but also due to specific vehicle configurations. This information may be used for visibility or impact hazard estimations.
     Measurement unit: (dimensionless)
@@ -61,15 +61,15 @@ class DriverSide(TextData):
      - CENTER: Driver is located in the center of the vehicle.
     """
 
-    val: str = field(default_factory=lambda: no_default(field="DriverSide.val"), metadata=required)
-    """Driver side"""
+    val: str = field(default_factory=lambda: no_default(field="CharacteristicsDriverSide.val"), metadata=required)
+    """Characteristics driver_side value"""
 
     name: Literal["object/characteristics/driver_side"] = field(default="object/characteristics/driver_side")
     """Is always object/characteristics/driver_side"""
 
 
 @dataclass
-class SpecialPurpose(TextData):
+class CharacteristicsSpecialPurpose(TextData):
     """
         Association of a road user to a special purpose or service (i.e., excluding personal and regular commercial vehicles or purposes). To indicate whether a vehicle is currently on an emergency mission (by using its emergency lights), see object/lights/emergency.
     Measurement unit: (dimensionless)
@@ -86,15 +86,15 @@ class SpecialPurpose(TextData):
      - OTHER: Any special service not listed above.
     """
 
-    val: str = field(default_factory=lambda: no_default(field="SpecialPurpose.val"), metadata=required)
-    """Special purpose"""
+    val: str = field(default_factory=lambda: no_default(field="CharacteristicsSpecialPurpose.val"), metadata=required)
+    """Characteristics special_purpose value"""
 
     name: Literal["object/characteristics/special_purpose"] = field(default="object/characteristics/special_purpose")
     """Is always object/characteristics/special_purpose"""
 
 
 @dataclass
-class CenterOfGravity(VectorData):
+class CharacteristicsCenterOfGravity(VectorData):
     """
         Center of gravity of this object, relative to the center of the bounding box.
     Measurement unit: m
@@ -103,16 +103,16 @@ class CenterOfGravity(VectorData):
     """
 
     val: tuple[Number, Number, Number] = field(
-        default_factory=lambda: no_default(field="CenterOfGravity.val"), metadata=required
+        default_factory=lambda: no_default(field="CharacteristicsCenterOfGravity.val"), metadata=required
     )
-    """Center of gravity"""
+    """Characteristics center_of_gravity value"""
 
     name: Literal["object/characteristics/center_of_gravity"] = field(default="object/characteristics/center_of_gravity")
     """Is always object/characteristics/center_of_gravity"""
 
 
 @dataclass
-class Mass(NumberData):
+class CharacteristicsMass(NumberData):
     """
         Mass of the object. This value refers to the actual vehicle mass (as required, e.g., to estimate crash impact severity).
     For the maximum allowable mass of the vehicle type, see object/characteristics/gross_vehicle_mass.
@@ -121,15 +121,15 @@ class Mass(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="Mass.val"), metadata=required)
-    """Mass"""
+    val: float = field(default_factory=lambda: no_default(field="CharacteristicsMass.val"), metadata=required)
+    """Characteristics mass value"""
 
     name: Literal["object/characteristics/mass"] = field(default="object/characteristics/mass")
     """Is always object/characteristics/mass"""
 
 
 @dataclass
-class GrossVehicleMass(NumberData):
+class CharacteristicsGrossVehicleMass(NumberData):
     """
         Maximum operating mass (or maximum authorized mass) of a vehicle as specified by the manufacturer including vehicle body, fuel, driver, passengers and cargo but excluding that of any trailers.
     This value is used for classification of the vehicle type, whereas
@@ -138,15 +138,15 @@ class GrossVehicleMass(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="GrossVehicleMass.val"), metadata=required)
-    """Gross vehicle mass"""
+    val: float = field(default_factory=lambda: no_default(field="CharacteristicsGrossVehicleMass.val"), metadata=required)
+    """Characteristics gross_vehicle_mass value"""
 
     name: Literal["object/characteristics/gross_vehicle_mass"] = field(default="object/characteristics/gross_vehicle_mass")
     """Is always object/characteristics/gross_vehicle_mass"""
 
 
 @dataclass
-class CurbMass(NumberData):
+class CharacteristicsCurbMass(NumberData):
     """
         Mass of the vehicle including structure, fluids and full fuel tank, but no passengers or cargo. Commonly called “curb weight” or “kerb weight”.
     Measurement unit: kg
@@ -154,15 +154,15 @@ class CurbMass(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="CurbMass.val"), metadata=required)
-    """Curb mass"""
+    val: float = field(default_factory=lambda: no_default(field="CharacteristicsCurbMass.val"), metadata=required)
+    """Characteristics curb_mass value"""
 
     name: Literal["object/characteristics/curb_mass"] = field(default="object/characteristics/curb_mass")
     """Is always object/characteristics/curb_mass"""
 
 
 @dataclass
-class Axles(NumberData):
+class CharacteristicsAxles(NumberData):
     """
         Number of axles (only for objects of Vehicle class).
     Measurement unit: (dimensionless)
@@ -170,15 +170,15 @@ class Axles(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="Axles.val"), metadata=required)
-    """Axles"""
+    val: int = field(default_factory=lambda: no_default(field="CharacteristicsAxles.val"), metadata=required)
+    """Characteristics axles value"""
 
     name: Literal["object/characteristics/axles"] = field(default="object/characteristics/axles")
     """Is always object/characteristics/axles"""
 
 
 @dataclass
-class Wheels(NumberData):
+class CharacteristicsWheels(NumberData):
     """
         Number of wheels (only for objects of Vehicle class).
     Measurement unit: (dimensionless)
@@ -186,15 +186,15 @@ class Wheels(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="Wheels.val"), metadata=required)
-    """Wheels"""
+    val: int = field(default_factory=lambda: no_default(field="CharacteristicsWheels.val"), metadata=required)
+    """Characteristics wheels value"""
 
     name: Literal["object/characteristics/wheels"] = field(default="object/characteristics/wheels")
     """Is always object/characteristics/wheels"""
 
 
 @dataclass
-class IndependentWheels(NumberData):
+class CharacteristicsIndependentWheels(NumberData):
     """
         Number of wheels (only for objects of Vehicle class) where dual wheels (e.g., in trucks) are counted as a single wheel.
     Measurement unit: (dimensionless)
@@ -202,15 +202,15 @@ class IndependentWheels(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="IndependentWheels.val"), metadata=required)
-    """Independent wheels"""
+    val: int = field(default_factory=lambda: no_default(field="CharacteristicsIndependentWheels.val"), metadata=required)
+    """Characteristics independent_wheels value"""
 
     name: Literal["object/characteristics/independent_wheels"] = field(default="object/characteristics/independent_wheels")
     """Is always object/characteristics/independent_wheels"""
 
 
 @dataclass
-class Seats(NumberData):
+class CharacteristicsSeats(NumberData):
     """
         Number of seats (occupied or unoccupied, only for objects of Vehicle class).
     Measurement unit: (dimensionless)
@@ -218,15 +218,15 @@ class Seats(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="Seats.val"), metadata=required)
-    """Seats"""
+    val: int = field(default_factory=lambda: no_default(field="CharacteristicsSeats.val"), metadata=required)
+    """Characteristics seats value"""
 
     name: Literal["object/characteristics/seats"] = field(default="object/characteristics/seats")
     """Is always object/characteristics/seats"""
 
 
 @dataclass
-class Passengers(NumberData):
+class CharacteristicsPassengers(NumberData):
     """
         Number of passengers actually present in/on the vehicle (only for objects of Vehicle class).
     Measurement unit: (dimensionless)
@@ -234,15 +234,15 @@ class Passengers(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="Passengers.val"), metadata=required)
-    """Passengers"""
+    val: int = field(default_factory=lambda: no_default(field="CharacteristicsPassengers.val"), metadata=required)
+    """Characteristics passengers value"""
 
     name: Literal["object/characteristics/passengers"] = field(default="object/characteristics/passengers")
     """Is always object/characteristics/passengers"""
 
 
 @dataclass
-class MaximumSpeed(NumberData):
+class CharacteristicsMaximumSpeed(NumberData):
     """
         Maximum permitted or possible speed for the vehicle in its present configuration. This can be the maximum design speed of the vehicle, speed limits for trailers, or speed limits for specific vehicle classes that apply regardless of road-specific speed limits.
     Measurement unit: m/s
@@ -250,15 +250,15 @@ class MaximumSpeed(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="MaximumSpeed.val"), metadata=required)
-    """Maximum speed"""
+    val: float = field(default_factory=lambda: no_default(field="CharacteristicsMaximumSpeed.val"), metadata=required)
+    """Characteristics maximum_speed value"""
 
     name: Literal["object/characteristics/maximum_speed"] = field(default="object/characteristics/maximum_speed")
     """Is always object/characteristics/maximum_speed"""
 
 
 @dataclass
-class HasRider(BooleanData):
+class CharacteristicsHasRider(BooleanData):
     """
         True iff the vehicle or animal has a rider or operator, as the mounted human controlling or supervising its motion.
     Measurement unit: N/A
@@ -266,15 +266,15 @@ class HasRider(BooleanData):
     Recommended distribution: probability of assigned value
     """
 
-    val: bool = field(default_factory=lambda: no_default(field="HasRider.val"), metadata=required)
-    """Has rider"""
+    val: bool = field(default_factory=lambda: no_default(field="CharacteristicsHasRider.val"), metadata=required)
+    """Characteristics has_rider value"""
 
     name: Literal["object/characteristics/has_rider"] = field(default="object/characteristics/has_rider")
     """Is always object/characteristics/has_rider"""
 
 
 @dataclass
-class HasEngine(BooleanData):
+class CharacteristicsHasEngine(BooleanData):
     """
         True iff the vehicle is completely or partly powered by an engine. Should be specified only for light vehicle types such as PEDAL_CYCLE or KICK_SCOOTER where engines are not equipped by default, to indicate pedelecs or e-scooters.
     Measurement unit: N/A
@@ -282,15 +282,15 @@ class HasEngine(BooleanData):
     Recommended distribution: (none)
     """
 
-    val: bool = field(default_factory=lambda: no_default(field="HasEngine.val"), metadata=required)
-    """Has engine"""
+    val: bool = field(default_factory=lambda: no_default(field="CharacteristicsHasEngine.val"), metadata=required)
+    """Characteristics has_engine value"""
 
     name: Literal["object/characteristics/has_engine"] = field(default="object/characteristics/has_engine")
     """Is always object/characteristics/has_engine"""
 
 
 @dataclass
-class IsRecorder(BooleanData):
+class CharacteristicsIsRecorder(BooleanData):
     """
         Indicates whether the object is the recording entity in this scenario. If True, this object is the recording entity of the scenario.
     Measurement unit: N/A
@@ -298,15 +298,15 @@ class IsRecorder(BooleanData):
     Recommended distribution: (none)
     """
 
-    val: bool = field(default_factory=lambda: no_default(field="IsRecorder.val"), metadata=required)
-    """Is recorder"""
+    val: bool = field(default_factory=lambda: no_default(field="CharacteristicsIsRecorder.val"), metadata=required)
+    """Characteristics is_recorder value"""
 
     name: Literal["object/characteristics/is_recorder"] = field(default="object/characteristics/is_recorder")
     """Is always object/characteristics/is_recorder"""
 
 
 @dataclass
-class ConnectedTo(VectorData):
+class CharacteristicsConnectedTo(VectorData):
     """
         Identified objects in a scene may be physically connected to other objects as trailers to trucks. If so, an object of type CONNECTION_GROUP can be created to store information about this connection.
     The connected_to parameter then either points from the individual connected parts towards the single UID of the CONNECTION_GROUP object, or from the CONNECTION_GROUP to the connected objects.
@@ -316,15 +316,17 @@ class ConnectedTo(VectorData):
     Recommended distribution: (none)
     """
 
-    val: tuple[ObjectUid, ...] = field(default_factory=lambda: no_default(field="ConnectedTo.val"), metadata=required)
-    """Connected to"""
+    val: tuple[ObjectUid, ...] = field(
+        default_factory=lambda: no_default(field="CharacteristicsConnectedTo.val"), metadata=required
+    )
+    """Characteristics connected_to value"""
 
     name: Literal["object/characteristics/connected_to"] = field(default="object/characteristics/connected_to")
     """Is always object/characteristics/connected_to"""
 
 
 @dataclass
-class TowedBy(TextData):
+class CharacteristicsTowedBy(TextData):
     """
         Single UID of the object that tows this object, for example the UID of the tractor from the perspective of a trailer. Should be used in combination with object/characteristics/connected_to when set.
     See also object/characteristics/position_fifth_wheel and object/characteristics/position_kingpin.
@@ -333,15 +335,15 @@ class TowedBy(TextData):
     Recommended distribution: (none)
     """
 
-    val: ObjectUid = field(default_factory=lambda: no_default(field="TowedBy.val"), metadata=required)
-    """Towed by"""
+    val: ObjectUid = field(default_factory=lambda: no_default(field="CharacteristicsTowedBy.val"), metadata=required)
+    """Characteristics towed_by value"""
 
     name: Literal["object/characteristics/towed_by"] = field(default="object/characteristics/towed_by")
     """Is always object/characteristics/towed_by"""
 
 
 @dataclass
-class PositionOfTheTangentialPoint(VectorData):
+class CharacteristicsPositionTangential(VectorData):
     """
         Position (x,y) or (x,y,z) in vehicle coordinates of one point whose path usually aligns with the X axis of the bounding box during turns without significant dynamics. The point shall be centered along the Y axis of the bounding box (i.e., having y = 0) unless there are specific reasons for a different convention.
     For typical front-steered two-axle vehicles, this point is located at the center of the rear axle. Required in case of detailed kinematic simulation / prediction models.
@@ -351,16 +353,16 @@ class PositionOfTheTangentialPoint(VectorData):
     """
 
     val: tuple[Number, Number] = field(
-        default_factory=lambda: no_default(field="PositionOfTheTangentialPoint.val"), metadata=required
+        default_factory=lambda: no_default(field="CharacteristicsPositionTangential.val"), metadata=required
     )
-    """Position of the tangential point"""
+    """Characteristics position_tangential value"""
 
     name: Literal["object/characteristics/position_tangential"] = field(default="object/characteristics/position_tangential")
     """Is always object/characteristics/position_tangential"""
 
 
 @dataclass
-class PositionOfTheFifthWheel(VectorData):
+class CharacteristicsPositionFifthWheel(VectorData):
     """
         Position (x,y) or (x,y,z) of the fifth wheel in object coordinates, which is the position at which a trailer (by its position of object/characteristics/position_kingpin) is attached to this vehicle.
     Required in case of detailed kinematic simulation / prediction models. When multiple trailers (double, triple configuration) are used, an intermediate trailer may have both a fifth wheel and a kingpin specified.
@@ -371,16 +373,16 @@ class PositionOfTheFifthWheel(VectorData):
     """
 
     val: tuple[Number, Number] = field(
-        default_factory=lambda: no_default(field="PositionOfTheFifthWheel.val"), metadata=required
+        default_factory=lambda: no_default(field="CharacteristicsPositionFifthWheel.val"), metadata=required
     )
-    """Position of the fifth wheel"""
+    """Characteristics position_fifth_wheel value"""
 
     name: Literal["object/characteristics/position_fifth_wheel"] = field(default="object/characteristics/position_fifth_wheel")
     """Is always object/characteristics/position_fifth_wheel"""
 
 
 @dataclass
-class PositionOfTheKingpin(VectorData):
+class CharacteristicsPositionKingpin(VectorData):
     """
         Position (x,y) or (x,y,z) of the kingpin in object coordinates, which is the position at which a trailer attaches to the towing vehicle (at its respective position of object/characteristics/position_fifth_wheel).
     When multiple trailers (double, triple configuration) are used, an intermediate trailer may have both a fifth wheel and a kingpin specified.
@@ -390,15 +392,17 @@ class PositionOfTheKingpin(VectorData):
     Recommended distribution: normal
     """
 
-    val: tuple[Number, Number] = field(default_factory=lambda: no_default(field="PositionOfTheKingpin.val"), metadata=required)
-    """Position of the kingpin"""
+    val: tuple[Number, Number] = field(
+        default_factory=lambda: no_default(field="CharacteristicsPositionKingpin.val"), metadata=required
+    )
+    """Characteristics position_kingpin value"""
 
     name: Literal["object/characteristics/position_kingpin"] = field(default="object/characteristics/position_kingpin")
     """Is always object/characteristics/position_kingpin"""
 
 
 @dataclass
-class GlobalPosition(VectorData):
+class CharacteristicsGlobalPosition(VectorData):
     """
         global 2D coordinates of the position  𝑔𝑖 = (𝑥𝑖, 𝑦𝑖) of a vehicle 𝑖 in a selected global inertial system. The position of a vehicle is defined by the center point of a vehicles shape.
     Measurement unit: m
@@ -406,15 +410,17 @@ class GlobalPosition(VectorData):
     Recommended distribution: normal
     """
 
-    val: tuple[Number, Number] = field(default_factory=lambda: no_default(field="GlobalPosition.val"), metadata=required)
-    """Global position"""
+    val: tuple[Number, Number] = field(
+        default_factory=lambda: no_default(field="CharacteristicsGlobalPosition.val"), metadata=required
+    )
+    """Characteristics global_position value"""
 
     name: Literal["object/characteristics/global_position"] = field(default="object/characteristics/global_position")
     """Is always object/characteristics/global_position"""
 
 
 @dataclass
-class Chamfer(VectorData):
+class CharacteristicsOutlineChamfer(VectorData):
     """
         2D outline shape parameters (in the x,y plane) for the chamfer outline model. The elements define the x coordinate offsets from the rear and front, respectively, at which a 45° chamfer at the bounding box corners meets the sides of the bounding box.
     Measurement unit: m
@@ -425,15 +431,17 @@ class Chamfer(VectorData):
      - b: (unit: m) Front chamfer
     """
 
-    val: tuple[Number, Number] = field(default_factory=lambda: no_default(field="Chamfer.val"), metadata=required)
-    """Chamfer"""
+    val: tuple[Number, Number] = field(
+        default_factory=lambda: no_default(field="CharacteristicsOutlineChamfer.val"), metadata=required
+    )
+    """Characteristics outline chamfer value"""
 
     name: Literal["object/characteristics/outline/chamfer"] = field(default="object/characteristics/outline/chamfer")
     """Is always object/characteristics/outline/chamfer"""
 
 
 @dataclass
-class Polygon(VectorData):
+class CharacteristicsOutlinePolygon(VectorData):
     """
         2D outline shape parameters (in the x,y plane) for the polygon (𝑃𝑖) outline model with the coordinates of the vertices 𝑝′𝑖,𝑣 = (𝑥′𝑖,𝑣, 𝑦′𝑖,𝑣) in vehicle coordinates (𝑣 = 1, ... , 𝑉 the vertices of the polygon) of vehicle 𝑖. The vertices shall start at the rear right edge point of the vehicle (𝑥′𝑖,0, 𝑦′𝑖,0), then describe the outline in CCW order, without self-intersections of the polygon, and such that the final point in the polygon can be connected to the first point to form the final side.
     The global coordinates of the polygons vertices can be computed by superimposing the vehicle's global position coordinates 𝑔𝑖 = (𝑥𝑖, 𝑦𝑖) with the local coordinates of the vertices 𝑝′𝑖,𝑣, which are rotated by an angle 𝛼 relative to the global coordinate system.
@@ -444,8 +452,10 @@ class Polygon(VectorData):
     Recommended distribution: normal
     """
 
-    val: tuple[Number, Number] = field(default_factory=lambda: no_default(field="Polygon.val"), metadata=required)
-    """Polygon"""
+    val: tuple[Number, Number] = field(
+        default_factory=lambda: no_default(field="CharacteristicsOutlinePolygon.val"), metadata=required
+    )
+    """Characteristics outline polygon value"""
 
     name: Literal["object/characteristics/outline/polygon"] = field(default="object/characteristics/outline/polygon")
     """Is always object/characteristics/outline/polygon"""

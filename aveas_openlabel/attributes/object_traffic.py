@@ -9,7 +9,7 @@ from uai_openlabel import (
 
 
 @dataclass
-class Density(NumberData):
+class TrafficDensity(NumberData):
     """
         Density of the traffic on the road the vehicle is currently on.
     The density of the traffic is the number of vehicles with the center of their bounding box within a 50 m range before and after the vehicle containing this attribute.
@@ -19,15 +19,15 @@ class Density(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="Density.val"), metadata=required)
-    """Density"""
+    val: float = field(default_factory=lambda: no_default(field="TrafficDensity.val"), metadata=required)
+    """Traffic density value"""
 
     name: Literal["object/traffic/density"] = field(default="object/traffic/density")
     """Is always object/traffic/density"""
 
 
 @dataclass
-class Volume(NumberData):
+class TrafficVolume(NumberData):
     """
         Intensity of the traffic on the road section the vehicle is currently on, measured as the number of vehicles entering the road section (across all parallel lanes in the same direction) per unit of time.
     The intensity of the traffic shall be measured over a time frame of 1 minute. The unit of the traffic intensity is vehicles per hour.
@@ -37,8 +37,8 @@ class Volume(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: float = field(default_factory=lambda: no_default(field="Volume.val"), metadata=required)
-    """Volume"""
+    val: float = field(default_factory=lambda: no_default(field="TrafficVolume.val"), metadata=required)
+    """Traffic volume value"""
 
     name: Literal["object/traffic/volume"] = field(default="object/traffic/volume")
     """Is always object/traffic/volume"""

@@ -10,7 +10,7 @@ from uai_openlabel import (
 
 
 @dataclass
-class SpeedLimit(NumberData):
+class RoadSpeedLimit(NumberData):
     """
         Applicable speed limit for this particular vehicle at its current position in (m/s). The applicable speed limit can stem from traffic signs, the specific location (e.g., within city limits), or from country-specific maxima.
     Measurement unit: m/s
@@ -20,15 +20,15 @@ class SpeedLimit(NumberData):
      - 0: indicates no speed limit (i.e., unlimited)
     """
 
-    val: float = field(default_factory=lambda: no_default(field="SpeedLimit.val"), metadata=required)
-    """Speed limit"""
+    val: float = field(default_factory=lambda: no_default(field="RoadSpeedLimit.val"), metadata=required)
+    """Road speed_limit value"""
 
     name: Literal["object/road/speed_limit"] = field(default="object/road/speed_limit")
     """Is always object/road/speed_limit"""
 
 
 @dataclass
-class Classification(TextData):
+class RoadClassification(TextData):
     """
         The classification of the current road section, adopting the OpenStreetMap definition for key “highway” OpenStreetMap contributors, OpenStreetMap Wiki, Key:highway , including the original definitions therein.
     Measurement unit: (dimensionless)
@@ -57,15 +57,15 @@ class Classification(TextData):
      - BUSWAY: A dedicated roadway for bus rapid transit systems.
     """
 
-    val: str = field(default_factory=lambda: no_default(field="Classification.val"), metadata=required)
-    """Classification"""
+    val: str = field(default_factory=lambda: no_default(field="RoadClassification.val"), metadata=required)
+    """Road classification value"""
 
     name: Literal["object/road/classification"] = field(default="object/road/classification")
     """Is always object/road/classification"""
 
 
 @dataclass
-class Junction(TextData):
+class RoadJunction(TextData):
     """
         The classification of the current road section.
     Measurement unit: (dimensionless)
@@ -78,15 +78,15 @@ class Junction(TextData):
      - ROUNDABOUT: A roundabout
     """
 
-    val: str = field(default_factory=lambda: no_default(field="Junction.val"), metadata=required)
-    """Junction"""
+    val: str = field(default_factory=lambda: no_default(field="RoadJunction.val"), metadata=required)
+    """Road junction value"""
 
     name: Literal["object/road/junction"] = field(default="object/road/junction")
     """Is always object/road/junction"""
 
 
 @dataclass
-class LeftLegallyUsable(NumberData):
+class RoadNumberLanesLeftLegal(NumberData):
     """
         Number of lanes left of vehicle’s position that the vehicle is legally permitted to use.
     Measurement unit: (dimensionless)
@@ -94,15 +94,15 @@ class LeftLegallyUsable(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="LeftLegallyUsable.val"), metadata=required)
-    """Left (legally usable)"""
+    val: int = field(default_factory=lambda: no_default(field="RoadNumberLanesLeftLegal.val"), metadata=required)
+    """Road number_lanes left_legal value"""
 
     name: Literal["object/road/number_lanes/left_legal"] = field(default="object/road/number_lanes/left_legal")
     """Is always object/road/number_lanes/left_legal"""
 
 
 @dataclass
-class LeftPhysicallyUsable(NumberData):
+class RoadNumberLanesLeftPhysical(NumberData):
     """
         Number of lanes left of vehicle’s position that the vehicle can physically reach, excluding its current lane. This includes lanes the vehicle is not allowed to drive on.
     Measurement unit: (dimensionless)
@@ -110,15 +110,15 @@ class LeftPhysicallyUsable(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="LeftPhysicallyUsable.val"), metadata=required)
-    """Left (physically usable)"""
+    val: int = field(default_factory=lambda: no_default(field="RoadNumberLanesLeftPhysical.val"), metadata=required)
+    """Road number_lanes left_physical value"""
 
     name: Literal["object/road/number_lanes/left_physical"] = field(default="object/road/number_lanes/left_physical")
     """Is always object/road/number_lanes/left_physical"""
 
 
 @dataclass
-class RightLegallyUsable(NumberData):
+class RoadNumberLanesRightLegal(NumberData):
     """
         Number of lanes right of vehicle’s position that the vehicle is legally permitted to use.
     Measurement unit: (dimensionless)
@@ -126,15 +126,15 @@ class RightLegallyUsable(NumberData):
     Recommended distribution: rectangular
     """
 
-    val: int = field(default_factory=lambda: no_default(field="RightLegallyUsable.val"), metadata=required)
-    """Right (legally usable)"""
+    val: int = field(default_factory=lambda: no_default(field="RoadNumberLanesRightLegal.val"), metadata=required)
+    """Road number_lanes right_legal value"""
 
     name: Literal["object/road/number_lanes/right_legal"] = field(default="object/road/number_lanes/right_legal")
     """Is always object/road/number_lanes/right_legal"""
 
 
 @dataclass
-class RightPhysicallyUsable(NumberData):
+class RoadNumberLanesRightPhysical(NumberData):
     """
         Number of lanes right of vehicle’s position that the vehicle can physically reach, excluding its current lane. This includes lanes the vehicle is not allowed to drive on.
     Measurement unit: (dimensionless)
@@ -144,8 +144,8 @@ class RightPhysicallyUsable(NumberData):
      - -1: Indicates that this attribute is not applicable.
     """
 
-    val: int = field(default_factory=lambda: no_default(field="RightPhysicallyUsable.val"), metadata=required)
-    """Right (physically usable)"""
+    val: int = field(default_factory=lambda: no_default(field="RoadNumberLanesRightPhysical.val"), metadata=required)
+    """Road number_lanes right_physical value"""
 
     name: Literal["object/road/number_lanes/right_physical"] = field(default="object/road/number_lanes/right_physical")
     """Is always object/road/number_lanes/right_physical"""
