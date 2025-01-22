@@ -27,9 +27,10 @@ from uai_openlabel import (
 )
 from uai_openlabel import (
     Number,
-    ObjectInFrame,
     ObjectUid,
 )
+
+from aveas_openlabel.object import ObjectInFrame
 
 
 @dataclass

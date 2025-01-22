@@ -24,7 +24,6 @@ from uai_openlabel import (
     CoordinateSystemUid,
     EventUid,
     FrameInterval,
-    Object,
     ObjectUid,
     OntologyUid,
     ResourceUid,
@@ -45,6 +44,8 @@ from aveas_openlabel.frame import Frame
 from aveas_openlabel.metadata import AcquisitionMethod, Metadata, RightOfUse
 
 __all__: list[str] = []
+
+from aveas_openlabel.object import Object
 
 
 @dataclass
